@@ -10,14 +10,22 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Specs
-
   extend MiniTest::Spec::DSL
 
   register_spec_type self do |desc|
     desc < ActiveRecord::Base if desc.is_a? Class
   end
 
-  # Add more helper methods to be used by all tests here...
+  # Cleaning
+  DatabaseCleaner.strategy = :transaction
+
+  before :each do
+    DatabaseCleaner.start
+  end
+
+  after :each do
+    DatabaseCleaner.clean
+  end
 end
 
 Capybara.javascript_driver = :webkit

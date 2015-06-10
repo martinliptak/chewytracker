@@ -26,6 +26,15 @@ en:
       brand: "MealTracker"
       toggle_navigation: "Toggle navigation"
       footer: "Built by MealTracker Inc."
+  users:
+    new:
+      title: "Sign up"
+    form:
+      name: "Your name"
+      email: "Your email"
+      password: "Password"
+      password_confirmation: "Password confirmation"
+      submit: "Sign up"
   welcome:
     index:
       title: "MealTracker"
@@ -37,5 +46,3 @@ en:
       email: "Email"
       password: "Password"
       submit: "Sign in"
-    sign_up:
-      submit: "Sign up"
