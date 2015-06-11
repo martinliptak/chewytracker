@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  before_save :default_values
+  before_create :default_values
 
   has_secure_password
   
@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   private
 
     def default_values
+      self.role ||= "regular"
       self.settings ||= {}
     end
 end

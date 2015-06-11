@@ -27,7 +27,9 @@ describe User do
     user.errors[:password_confirmation].must_be :present? 
   end
 
-  it "has default settings" do
-    user.settings.must_equal {}
+  it "has default settings after save" do
+    user.save
+    user.settings.must_equal Hash.new
+    user.role.must_equal "regular"
   end
 end

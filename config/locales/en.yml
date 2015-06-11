@@ -27,17 +27,29 @@ en:
         email: "Your email"
         password: "Password"
         password_confirmation: "Password again"
+      session_form:
+        email: "Email"
+        password: "Password"
   layouts:
     application:
-      title: "MealTracker"
       brand: "MealTracker"
-      toggle_navigation: "Toggle navigation"
       footer: "Built by MealTracker Inc."
+      sign_in: "Sign in"
+      sign_out: "Sign out"
+      title: "MealTracker"
+      toggle_navigation: "Toggle navigation"
+  meals:
+    index:
   users:
     new:
       title: "Sign up"
     form:
       submit: "Sign up"
+  sessions:
+    new:
+      title: "Sign in"
+    form:
+      submit: "Sign in"
   welcome:
     index:
       title: "MealTracker"
@@ -45,7 +57,3 @@ en:
       sign_up: "Sign up"
       or: "or"
       learn_more: "learn more"
-    sign_in:
-      email: "Email"
-      password: "Password"
-      submit: "Sign in"

@@ -48,6 +48,8 @@ group :development, :test do
   gem "capybara"
   gem "capybara-webkit"
   gem "minitest-rails-capybara"
+  gem "minitest-reporters"
   gem "database_cleaner"
+  gem "launchy"
 end
 

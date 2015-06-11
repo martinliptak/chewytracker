@@ -6,9 +6,9 @@ class UsersController < ApplicationController
   def create
     user_parameters = params.require(:user).permit(:name, :email, :password, :password_confirmation)
     @user = User.new(user_parameters)
-    @user.role = "regular"
     if @user.save
-      redirect_to root_url, notice: "Thank you for signing up!"
+      session[:user_id] = @user.id
+      redirect_via_turbolinks_to meals_url
     end
   end
 end

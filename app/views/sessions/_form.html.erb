@@ -1,0 +1,6 @@
+<%= bootstrap_form_for @session_form, remote: true, url: sign_in_path, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4" do |f| %>
+  <%= f.text_field :email %>
+  <%= f.password_field :password %>
+
+  <%= f.submit t(".submit"), class: "btn btn-primary" %>
+<% end %>
