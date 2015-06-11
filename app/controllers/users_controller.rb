@@ -9,8 +9,6 @@ class UsersController < ApplicationController
     @user.role = "regular"
     if @user.save
       redirect_to root_url, notice: "Thank you for signing up!"
-    else
-      render "new"
     end
   end
 end

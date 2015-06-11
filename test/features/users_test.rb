@@ -20,4 +20,15 @@ feature "Users" do
     user.name.must_equal "I Am Grook"
     user.email.must_equal "iamgrook@example.com"
   end
+
+  # requests html format for remote form
+  # scenario "sign up with empty inputs", js: true do
+  #   visit new_users_path
+
+  #   click_button "Sign up"
+
+  #   page.must_have_content "can't be blank"
+
+  #   User.count.must_equal 0
+  # end
 end

@@ -17,9 +17,12 @@ class ActiveSupport::TestCase
   end
 
   # Cleaning
-  DatabaseCleaner.strategy = :transaction
-
   before :each do
+    if Capybara.current_driver == :rack_test
+      DatabaseCleaner.strategy = :truncation
+    else
+      DatabaseCleaner.strategy = :transaction
+    end    
     DatabaseCleaner.start
   end
 
@@ -28,4 +31,8 @@ class ActiveSupport::TestCase
   end
 end
 
+Capybara.current_driver = :rack_test
+Capybara.default_driver = :rack_test
 Capybara.javascript_driver = :webkit
+
+DatabaseCleaner.clean_with :truncation
