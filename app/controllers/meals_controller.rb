@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-  before_action :authorize!
+  before_action :authenticate!
   before_action :find_meal, only: [:edit, :update, :destroy]
 
   def index

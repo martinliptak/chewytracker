@@ -27,6 +27,7 @@ en:
       sign_out: "Sign out"
       title: "MealTracker"
       toggle_navigation: "Toggle navigation"
+      settings: "Settings"
   meals:
     edit:
       back: "Back"
@@ -62,10 +63,15 @@ en:
       title: "Total calories today"
       total: "Total"
   users:
+    edit:
+      title: "Edit user"
+    settings:
+      title: "Settings"
     new:
       title: "Sign up"
     form:
-      submit: "Sign up"
+      sign_up: "Sign up"
+      save: "Save"
   sessions:
     new:
       title: "Sign in"

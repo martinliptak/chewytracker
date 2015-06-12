@@ -11,9 +11,9 @@ class UnauthenticatedConstraints
 end
 
 Rails.application.routes.draw do
-  resources :users
-
   constraints UnauthenticatedConstraints.new do
+    resources :users, only: [:new, :create]
+
     get "/sign_in" => "sessions#new"
     post "/sign_in" => "sessions#create"
 
@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   end
   
   constraints AuthenticatedConstraints.new do
+    resources :users, except: [:new, :create]
+
+    get "/settings" => "users#settings"
+
     resources :meals, except: :index do
       post :filter, on: :collection
     end

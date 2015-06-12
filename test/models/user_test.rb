@@ -24,7 +24,6 @@ describe User do
     user.errors[:name].must_be :present? 
     user.errors[:email].must_be :present? 
     user.errors[:password].must_be :present? 
-    user.errors[:password_confirmation].must_be :present? 
   end
 
   it "has default settings after save" do

@@ -7,7 +7,7 @@
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit t(".submit"), class: "btn btn-primary" %>
+      <%= f.submit @user.new_record? ? t(".sign_up") : t(".save"), class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>

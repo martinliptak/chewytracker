@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     end
     helper_method :current_user
 
-    def authorize!
+    def authenticate!
       redirect_to sign_in_url if current_user.nil?
     end
 end
