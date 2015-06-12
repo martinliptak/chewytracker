@@ -1,3 +1,26 @@
 <div class="container">
-  <p>Meals</p>
+  <div class="page-header">
+    <div class="pull-right">
+      <%= link_to new_meal_path, class: "btn btn-primary" do %>
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <%= t(".new_meal") %>
+      <% end %>
+    </div>
+
+    <h1><%= t ".title" %></h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <% if @meals.any? %>
+        <%= render "total" %>
+        <%= render "filters" %>
+      <% end %>
+    </div>
+    <div class="col-sm-8" id="meals">
+      <% if @meals.any? %>
+        <%= render "table" %>
+      <% else %>
+        <%= t ".none_html", new_meal_link_html: link_to(t(".new_meal_link_title"), new_meal_path) %>
+      <% end %>
+    </div>
+  </div>
 </div>

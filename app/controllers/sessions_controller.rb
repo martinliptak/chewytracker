@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     @session_form = SessionForm.new
     if @session_form.submit(params)
       session[:user_id] = @session_form.user.id
-      redirect_via_turbolinks_to meals_url
+      redirect_via_turbolinks_to dashboard_path
     end
   end
 

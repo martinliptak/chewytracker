@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t "activerecord.attributes.meal.name" %></th>
+      <th><%= t "activerecord.attributes.meal.calories" %></th>
+      <th><%= t "activerecord.attributes.meal.eaten_at" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @meals.each do |meal| %>
+      <tr>
+        <td><%= meal.name %></td>
+        <td><%= number_to_human meal.calories %></td>
+        <td><%= l meal.eaten_at, format: :short %></td>
+        <td>
+          <div class="pull-right">
+            <%= link_to t(".edit"), [:edit, meal], :class => "btn btn-primary" %>
+            <%= link_to t(".destroy"), meal, :class => "btn btn-danger", :remote => true, :method => :delete, :data => { :confirm => t(".destroy_confirm", name: meal.name) } %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

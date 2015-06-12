@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_parameters)
     if @user.save
       session[:user_id] = @user.id
-      redirect_via_turbolinks_to meals_url
+      redirect_via_turbolinks_to dashboard_path
     end
   end
 end

@@ -1,11 +1,11 @@
 require "test_helper"
 
-feature "User" do
-  scenario "signs up", js: true do
+feature "Users" do
+  scenario "sign up", js: true do
     visit welcome_path
 
     click_link "Sign up"
-    current_path.must_equal new_users_path
+    current_path.must_equal new_user_path
 
     within "#user_form" do
       fill_in :user_name, with: "I Am Grook"
@@ -25,8 +25,8 @@ feature "User" do
     user.email.must_equal "iamgrook@example.com"
   end
 
-  scenario "doesn't fill in required inputs", js: true do
-    visit new_users_path
+  scenario "don't fill in required inputs", js: true do
+    visit new_user_path
 
     click_button "Sign up"
 

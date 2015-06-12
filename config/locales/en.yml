@@ -1,27 +1,11 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   activerecord:
     attributes:
+      meal:
+        name: "Name"
+        calories: "Calories"
+        eaten_at: "When"
+        formatted_eaten_at: "When"
       user:
         name: "Your name"
         email: "Your email"
@@ -30,16 +14,45 @@ en:
       session_form:
         email: "Email"
         password: "Password"
+    placeholders:
+      meal:
+        name: "e.g. Double Cheeseburger Menu"
+        calories: "e.g. 960"
   layouts:
     application:
       brand: "MealTracker"
-      footer: "Built by MealTracker Inc."
+      footer: "Built by Martin"
       sign_in: "Sign in"
       sign_out: "Sign out"
       title: "MealTracker"
       toggle_navigation: "Toggle navigation"
   meals:
+    edit:
+      title: "Edit meal"
+    filtered_meals:
+      filters_applied_warning_html: "<strong>Using filters!</strong> If you want to see all the meals, %{clear_filters_link_html}."
+      clear_filters_link: "clear filters"
+      none_html: "There are no results. Try refining your filter conditions or %{clear_filters_link_html}."
+    filters:
+      title: "Filters"
+      filter_date_from: "From date"
+      filter_date_to: "To date"
+      filter_time_from: "From time"
+      filter_time_to: "To time"
+      submit: "Apply"
+    form:
+      submit: "Save"
     index:
+      none_html: "There aren't any meals yet. Try %{new_meal_link_html}."
+      new_meal_link_title: "adding your first meal"
+      title: "My meals"
+      new_meal: "Add new meal"
+    new:
+      title: "Add new meal"
+    table:
+      edit: "Edit"
+      destroy: "Remove"
+      destroy_confirm: "Are you sure to remove %{name}?"
   users:
     new:
       title: "Sign up"

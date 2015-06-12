@@ -11,7 +11,7 @@ class UnauthenticatedConstraints
 end
 
 Rails.application.routes.draw do
-  resource :users
+  resources :users
 
   constraints UnauthenticatedConstraints.new do
     get "/sign_in" => "sessions#new"
@@ -21,8 +21,12 @@ Rails.application.routes.draw do
   end
   
   constraints AuthenticatedConstraints.new do
+    resources :meals, except: :index do
+      post :filter, on: :collection
+    end
+
     delete "/sign_out" => "sessions#destroy"
 
-    root 'meals#index', as: :meals
+    root 'meals#index', as: :dashboard
   end
 end

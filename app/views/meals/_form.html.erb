@@ -1,0 +1,7 @@
+<%= bootstrap_form_for @meal, remote: true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4" do |f| %>
+  <%= f.text_field :name, placeholder: t("activerecord.placeholders.meal.name") %>
+  <%= f.text_field :calories, type: :number, append: "KCAL", placeholder: t("activerecord.placeholders.meal.calories") %>
+  <%= f.datetime_local_field :eaten_at %>
+
+  <%= f.submit t(".submit"), class: "btn btn-primary" %>
+<% end %>
