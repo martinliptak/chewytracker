@@ -10,7 +10,7 @@
     <% @meals.each do |meal| %>
       <tr>
         <td><%= meal.name %></td>
-        <td><%= number_to_human meal.calories %></td>
+        <td><%= number_with_delimiter meal.calories %></td>
         <td><%= l meal.eaten_at, format: :short %></td>
         <td>
           <div class="pull-right">

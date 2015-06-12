@@ -31,5 +31,15 @@ describe User do
     user.save
     user.settings.must_equal Hash.new
     user.role.must_equal "regular"
+    user.expected_calories.must_equal 2000
+  end
+
+  it "computes total calories for today" do
+    user.meals.build(name: "Meal 1", calories: 10, eaten_at: Time.now)
+    user.meals.build(name: "Meal 2", calories: 20, eaten_at: Time.now)
+    user.meals.build(name: "Meal 3", calories: 30, eaten_at: Time.now - 2.days)
+    user.save
+
+    user.total_calories.must_equal 30
   end
 end

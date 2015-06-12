@@ -2,5 +2,9 @@
   <%= f.text_field :email %>
   <%= f.password_field :password %>
 
-  <%= f.submit t(".submit"), class: "btn btn-primary" %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit t(".submit"), class: "btn btn-primary" %>
+    </div>
+  </div>
 <% end %>

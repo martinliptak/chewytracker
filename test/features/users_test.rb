@@ -12,6 +12,7 @@ feature "Users" do
       fill_in :user_email, with: "iamgrook@example.com"
       fill_in :user_password, with: "password"
       fill_in :user_password_confirmation, with: "password"
+      fill_in :user_expected_calories, with: "2000"
       click_button "Sign up"
     end
 
@@ -23,6 +24,7 @@ feature "Users" do
     user.role.must_equal "regular"
     user.name.must_equal "I Am Grook"
     user.email.must_equal "iamgrook@example.com"
+    user.expected_calories.must_equal 2000
   end
 
   scenario "don't fill in required inputs", js: true do

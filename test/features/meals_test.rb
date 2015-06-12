@@ -35,6 +35,22 @@ feature "Meals" do
     page.must_have_content "Meal 2"
   end
 
+  scenario "are counted", js: true do
+    create_user_and_sign_in(expected_calories: 1000)
+
+    current_user.meals.create!(name: "Meal 1", calories: 100, eaten_at: Time.now)
+    current_user.meals.create!(name: "Meal 2", calories: 200, eaten_at: Time.now)
+    current_user.meals.create!(name: "Meal 3", calories: 300, eaten_at: Time.now - 2.days)
+    visit dashboard_path
+
+    page.wont_have_content "That's enough for today!"
+
+    current_user.meals.create!(name: "Meal 4", calories: 900, eaten_at: Time.now)
+    visit dashboard_path
+
+    page.must_have_content "That's enough for today!"    
+  end
+
   scenario "are added", js: true do
     create_user_and_sign_in
 

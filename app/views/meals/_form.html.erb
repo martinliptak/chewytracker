@@ -3,5 +3,9 @@
   <%= f.text_field :calories, type: :number, append: "KCAL", placeholder: t("activerecord.placeholders.meal.calories") %>
   <%= f.datetime_local_field :eaten_at %>
 
-  <%= f.submit t(".submit"), class: "btn btn-primary" %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit t(".submit"), class: "btn btn-primary" %>
+    </div>
+  </div>
 <% end %>

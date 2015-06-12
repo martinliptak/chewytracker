@@ -1,6 +1,22 @@
-<div class="panel panel-success">
-  <div class="panel-heading">Total calories today</div>
+<div class="panel panel-<%= total_calories_exceeded ? "danger" : "success" %>">
+  <div class="panel-heading"><%= t ".title" %></div>
   <div class="panel-body">
-    Panel content
+    <% if total_calories_exceeded %>
+      <div class="alert" role="alert">
+        <%= t ".enough_alert" %>
+      </div>
+    <% else %>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-success" role="progressbar" aria-valuenow="<%= total_calories_percent %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= total_calories_percent %>%;">
+        </div>
+      </div>
+    <% end %>
+
+    <table class="table">
+      <tbody>
+        <tr><th><%= t ".total" %></th><td class="text-right"><%= number_with_delimiter current_user.total_calories %></td></tr>
+        <tr><th><%= t ".expected" %></th><td class="text-right"><%= number_with_delimiter current_user.expected_calories %></td></tr>
+      </tbody>
+    </table>
   </div>
 </div>

@@ -11,6 +11,7 @@ en:
         email: "Your email"
         password: "Password"
         password_confirmation: "Password again"
+        expected_calories: "Expected calories per day"
       session_form:
         email: "Email"
         password: "Password"
@@ -28,6 +29,7 @@ en:
       toggle_navigation: "Toggle navigation"
   meals:
     edit:
+      back: "Back"
       title: "Edit meal"
     filtered_meals:
       filters_applied_warning_html: "<strong>Using filters!</strong> If you want to see all the meals, %{clear_filters_link_html}."
@@ -48,11 +50,17 @@ en:
       title: "My meals"
       new_meal: "Add new meal"
     new:
+      back: "Back"
       title: "Add new meal"
     table:
       edit: "Edit"
       destroy: "Remove"
       destroy_confirm: "Are you sure to remove %{name}?"
+    total:
+      enough_alert: "That's enough for today!"
+      expected: "Expected"
+      title: "Total calories today"
+      total: "Total"
   users:
     new:
       title: "Sign up"
