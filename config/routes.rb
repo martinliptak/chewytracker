@@ -25,12 +25,13 @@ Rails.application.routes.draw do
 
     get "/settings" => "users#settings"
 
-    resources :meals, except: :index do
+    resources :meals do
       post :filter, on: :collection
+      post :filter_all, on: :collection
     end
 
     delete "/sign_out" => "sessions#destroy"
 
-    root 'meals#index', as: :dashboard
+    root 'meals#dashboard', as: :dashboard
   end
 end

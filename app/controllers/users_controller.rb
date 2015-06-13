@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:edit, :update, :destroy]
   before_action :authorize!, only: [:edit, :update, :destroy]
 
+  def index
+    @users = User.order("id DESC")
+  end
+
   def new
     @user = User.new
   end
@@ -25,12 +29,13 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_parameters)
-      redirect_via_turbolinks_to dashboard_path
+      redirect_via_turbolinks_to URI(request.referer).path == settings_path ? dashboard_path : users_path
     end
   end
 
   def destroy
-    @user.remove
+    @user.delete
+    redirect_via_turbolinks_to users_path
   end
 
   private

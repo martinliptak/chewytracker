@@ -4,14 +4,20 @@
       <th><%= t "activerecord.attributes.meal.name" %></th>
       <th><%= t "activerecord.attributes.meal.calories" %></th>
       <th><%= t "activerecord.attributes.meal.eaten_at" %></th>
+      <% if action_name == "index" %>
+        <th><%= t "activerecord.attributes.meal.user" %></th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
     <% @meals.each do |meal| %>
-      <tr>
+      <tr data-id="<%= meal.user.id %>">
         <td><%= meal.name %></td>
         <td><%= number_with_delimiter meal.calories %></td>
         <td><%= l meal.eaten_at, format: :short %></td>
+        <% if action_name == "index" %>
+          <td><%= meal.user.try(:name) %></td>
+        <% end %>
         <td>
           <div class="pull-right">
             <%= link_to t(".edit"), [:edit, meal], :class => "btn btn-primary" %>

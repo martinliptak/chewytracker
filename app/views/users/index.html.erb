@@ -9,15 +9,9 @@
 
         <p class="alert text-muted">IDEA: Stats relevant for admins</p>
       </div>
-
-      <%= render "filters_all" %>
     </div>
-    <div class="col-sm-8" id="meals">
-      <% if @meals.any? %>
-        <%= render "table" %>
-      <% else %>
-        <%= t ".none" %>
-      <% end %>
+    <div class="col-sm-8" id="users">
+      <%= render "table" %>
     </div>
   </div>
 </div>

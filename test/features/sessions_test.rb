@@ -1,7 +1,7 @@
 require "test_helper"
 
 feature "Sessions" do
-  scenario "are created", js: true do
+  scenario "Signing in", js: true do
     create_user
 
     visit welcome_path
@@ -17,7 +17,7 @@ feature "Sessions" do
     page.must_have_content "I Am Grook"
   end
 
-  scenario "are destroyed", js: true do
+  scenario "Signing out", js: true do
     create_user_and_sign_in
 
     click_link "I Am Grook"

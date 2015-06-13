@@ -6,12 +6,15 @@ en:
         calories: "Calories"
         eaten_at: "When"
         formatted_eaten_at: "When"
+        user: "User"
       user:
-        name: "Your name"
-        email: "Your email"
+        name: "Name"
+        email: "E-mail"
         password: "Password"
         password_confirmation: "Password again"
         expected_calories: "Expected calories per day"
+        role: "Role"
+        created_at: "Signed up"
       session_form:
         email: "Email"
         password: "Password"
@@ -28,7 +31,13 @@ en:
       title: "MealTracker"
       toggle_navigation: "Toggle navigation"
       settings: "Settings"
+      manage: "Manage"
   meals:
+    dashboard:
+      none_html: "There aren't any meals yet. Try %{new_meal_link_html}."
+      new_meal_link_title: "adding your first meal"
+      title: "My meals"
+      new_meal: "Add new meal"
     edit:
       back: "Back"
       title: "Edit meal"
@@ -43,13 +52,15 @@ en:
       filter_time_from: "From time"
       filter_time_to: "To time"
       submit: "Apply"
+    filters_all:
+      title: "Filters"
+      filter_user: "User"
+      submit: "Apply"
+    index:
+      title: "All meals"
+      none: "There aren't any meals yet."
     form:
       submit: "Save"
-    index:
-      none_html: "There aren't any meals yet. Try %{new_meal_link_html}."
-      new_meal_link_title: "adding your first meal"
-      title: "My meals"
-      new_meal: "Add new meal"
     new:
       back: "Back"
       title: "Add new meal"
@@ -65,6 +76,8 @@ en:
   users:
     edit:
       title: "Edit user"
+    index:
+      title: "All users"
     settings:
       title: "Settings"
     new:
@@ -72,6 +85,10 @@ en:
     form:
       sign_up: "Sign up"
       save: "Save"
+    table:
+      edit: "Edit"
+      destroy: "Remove"
+      destroy_confirm: "Are you sure to remove %{name}?"
   sessions:
     new:
       title: "Sign in"

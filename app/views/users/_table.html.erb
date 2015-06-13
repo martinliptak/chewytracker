@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t "activerecord.attributes.user.name" %></th>
+      <th><%= t "activerecord.attributes.user.role" %></th>
+      <th><%= t "activerecord.attributes.user.created_at" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr data-id="<%= user.id %>">
+        <td><%= user.name %></td>
+        <td><%= user.role.humanize %></td>
+        <td><%= l user.created_at, format: :short %></td>
+        <td>
+          <div class="pull-right">
+            <%= link_to t(".edit"), [:edit, user], :class => "btn btn-primary" %>
+            <%= link_to t(".destroy"), user, :class => "btn btn-danger", :remote => true, :method => :delete, :data => { :confirm => t(".destroy_confirm", name: user.name) } %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

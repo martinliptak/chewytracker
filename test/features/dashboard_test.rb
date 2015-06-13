@@ -1,7 +1,7 @@
 require "test_helper"
 
-feature "Meals" do
-  scenario "are listed", js: true do
+feature "Dashboard" do
+  scenario "Listing meals", js: true do
     create_user_and_sign_in
 
     page.must_have_content "There aren't any meals yet."
@@ -16,7 +16,7 @@ feature "Meals" do
     page.must_have_content "200"
   end
 
-  scenario "are filtered", js: true do
+  scenario "Filtering meals", js: true do
     create_user_and_sign_in
 
     current_user.meals.create!(name: "Meal 1", calories: 100, eaten_at: Time.now)
@@ -35,7 +35,7 @@ feature "Meals" do
     page.must_have_content "Meal 2"
   end
 
-  scenario "are counted", js: true do
+  scenario "Counting calories", js: true do
     create_user_and_sign_in(expected_calories: 1000)
 
     current_user.meals.create!(name: "Meal 1", calories: 100, eaten_at: Time.now)
@@ -51,7 +51,7 @@ feature "Meals" do
     page.must_have_content "That's enough for today!"    
   end
 
-  scenario "are added", js: true do
+  scenario "Adding meals", js: true do
     create_user_and_sign_in
 
     click_link "Add new meal"
@@ -71,7 +71,7 @@ feature "Meals" do
     meal.eaten_at.must_equal Time.parse("Fri, 12 Jun 2015 12:00:00 UTC +00:00")
   end
 
-  scenario "are edited", js: true do
+  scenario "Editing own meals", js: true do
     create_user_and_sign_in
 
     current_user.meals.create!(name: "Meal 1", calories: 100, eaten_at: Time.now)
@@ -96,7 +96,7 @@ feature "Meals" do
     meal.eaten_at.must_equal Time.parse("Fri, 12 Jun 2015 12:00:00 UTC +00:00")
   end
 
-  scenario "are removed", js: true do
+  scenario "Removing own meals", js: true do
     create_user_and_sign_in
 
     current_user.meals.create!(name: "Meal 1", calories: 100, eaten_at: Time.now)
