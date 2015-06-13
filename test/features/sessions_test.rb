@@ -1,16 +1,16 @@
 require "test_helper"
 
 feature "Sessions" do
-  scenario "Signing in", js: true do
-    create_user
+  let(:user) { FactoryGirl.create(:user) }
 
+  scenario "Signing in", js: true do
     visit welcome_path
 
     click_link "Sign in"
 
     within "#session_form" do
-        fill_in :session_form_email, with: "iamgrook@example.com"
-        fill_in :session_form_password, with: "password"
+        fill_in :session_form_email, with: user.email
+        fill_in :session_form_password, with: user.password
         click_button "Sign in"
     end
 
@@ -18,7 +18,7 @@ feature "Sessions" do
   end
 
   scenario "Signing out", js: true do
-    create_user_and_sign_in
+    sign_in(user)
 
     click_link "I Am Grook"
     click_link "Sign out"

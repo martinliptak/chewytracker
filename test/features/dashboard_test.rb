@@ -1,13 +1,15 @@
 require "test_helper"
 
 feature "Dashboard" do
+  let(:user) { FactoryGirl.create(:user, expected_calories: 1000) }
+
   scenario "Listing meals", js: true do
-    create_user_and_sign_in
+    sign_in(user)
 
     page.must_have_content "There aren't any meals yet."
 
-    current_user.meals.create!(name: "Meal 1", calories: 100, eaten_at: Time.now)
-    current_user.meals.create!(name: "Meal 2", calories: 200, eaten_at: Time.now - 2.days)
+    FactoryGirl.create(:meal, user: current_user, name: "Meal 1", calories: 100)
+    FactoryGirl.create(:meal, user: current_user, name: "Meal 2", calories: 200, eaten_at: Time.now - 2.days)
     visit dashboard_path
 
     page.must_have_content "Meal 1"
@@ -17,10 +19,10 @@ feature "Dashboard" do
   end
 
   scenario "Filtering meals", js: true do
-    create_user_and_sign_in
+    sign_in(user)
 
-    current_user.meals.create!(name: "Meal 1", calories: 100, eaten_at: Time.now)
-    current_user.meals.create!(name: "Meal 2", calories: 200, eaten_at: Time.now - 2.days)
+    FactoryGirl.create(:meal, user: current_user, name: "Meal 1", calories: 100)
+    FactoryGirl.create(:meal, user: current_user, name: "Meal 2", calories: 200, eaten_at: Time.now - 2.days)
     visit dashboard_path
 
     fill_in :filter_date_from, with: Date.today.to_formatted_s(:iso8601) # just the latest meal
@@ -36,11 +38,11 @@ feature "Dashboard" do
   end
 
   scenario "Counting calories", js: true do
-    create_user_and_sign_in(expected_calories: 1000)
+    sign_in(user)
 
-    current_user.meals.create!(name: "Meal 1", calories: 100, eaten_at: Time.now)
-    current_user.meals.create!(name: "Meal 2", calories: 200, eaten_at: Time.now)
-    current_user.meals.create!(name: "Meal 3", calories: 300, eaten_at: Time.now - 2.days)
+    FactoryGirl.create(:meal, user: current_user, name: "Meal 1", calories: 100)
+    FactoryGirl.create(:meal, user: current_user, name: "Meal 2", calories: 200)
+    FactoryGirl.create(:meal, user: current_user, name: "Meal 3", calories: 300, eaten_at: Time.now - 2.days)
     visit dashboard_path
 
     page.wont_have_content "That's enough for today!"
@@ -52,7 +54,7 @@ feature "Dashboard" do
   end
 
   scenario "Adding meals", js: true do
-    create_user_and_sign_in
+    sign_in(user)
 
     click_link "Add new meal"
 
@@ -72,9 +74,9 @@ feature "Dashboard" do
   end
 
   scenario "Editing own meals", js: true do
-    create_user_and_sign_in
+    sign_in(user)
 
-    current_user.meals.create!(name: "Meal 1", calories: 100, eaten_at: Time.now)
+    FactoryGirl.create(:meal, user: current_user, name: "Meal 1", calories: 100)
     visit dashboard_path
 
     within "#meals" do
@@ -97,9 +99,9 @@ feature "Dashboard" do
   end
 
   scenario "Removing own meals", js: true do
-    create_user_and_sign_in
+    sign_in(user)
 
-    current_user.meals.create!(name: "Meal 1", calories: 100, eaten_at: Time.now)
+    FactoryGirl.create(:meal, user: current_user, name: "Meal 1", calories: 100)
     visit dashboard_path
 
     within "#meals" do

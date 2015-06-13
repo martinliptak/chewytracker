@@ -15,7 +15,9 @@
         <td>
           <div class="pull-right">
             <%= link_to t(".edit"), [:edit, user], :class => "btn btn-primary" %>
-            <%= link_to t(".destroy"), user, :class => "btn btn-danger", :remote => true, :method => :delete, :data => { :confirm => t(".destroy_confirm", name: user.name) } %>
+            <% if can? :destroy, user%>
+              <%= link_to t(".destroy"), user, :class => "btn btn-danger", :remote => true, :method => :delete, :data => { :confirm => t(".destroy_confirm", name: user.name) } %>
+            <% end %>
           </div>
         </td>
       </tr>

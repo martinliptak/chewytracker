@@ -1,10 +1,22 @@
 require "test_helper"
 
 feature "Managing meals" do
-  scenario "Listing all meals", js: true do
-    other_user = create_user(name: "User 1", email: "user1@example.com")
+  let(:user) { FactoryGirl.create(:user) }
+  let(:user_manager) { FactoryGirl.create(:user, role: "user_manager") }
+  let(:admin) { FactoryGirl.create(:user, role: "admin") }
 
-    create_user_and_sign_in
+  scenario "User manager users trying to manage meals", js: true do
+    sign_in(user_manager)
+
+    click_link "Manage"
+
+    page.wont_have_link "Meals"
+  end
+
+  scenario "Listing all meals", js: true do
+    other_user = FactoryGirl.create(:user, name: "User 1", email: "user1@example.com")
+
+    sign_in(admin)
 
     click_link "Manage"
     click_link "Meals"
@@ -12,8 +24,8 @@ feature "Managing meals" do
 
     page.must_have_content "There aren't any meals yet."
 
-    current_user.meals.create!(name: "Meal 1", calories: 100, eaten_at: Time.now)
-    other_user.meals.create!(name: "Meal 2", calories: 200, eaten_at: Time.now - 2.days)
+    FactoryGirl.create(:meal, user: current_user, name: "Meal 1", calories: 100)
+    FactoryGirl.create(:meal, user: other_user, name: "Meal 2", calories: 200)
     visit meals_path
 
     page.must_have_content "Meal 1"
@@ -24,13 +36,12 @@ feature "Managing meals" do
   end
 
   scenario "Filtering all meals", js: true do
-    other_user = create_user(name: "User 1", email: "user1@example.com")
+    other_user = FactoryGirl.create(:user, name: "User 1", email: "user1@example.com")
 
-    create_user_and_sign_in
+    sign_in(admin)
 
-    current_user.meals.create!(name: "Meal 1", calories: 100, eaten_at: Time.now)
-    other_user.meals.create!(name: "Meal 2", calories: 200, eaten_at: Time.now - 2.days)
-
+    FactoryGirl.create(:meal, user: current_user, name: "Meal 1", calories: 100)
+    FactoryGirl.create(:meal, user: other_user, name: "Meal 2", calories: 200)
     visit meals_path
 
     select other_user.name, from: :_filter_user_id
@@ -46,10 +57,10 @@ feature "Managing meals" do
   end
 
   scenario "Editing meals", js: true do
-    other_user = create_user(name: "User 1", email: "user1@example.com")
-    other_user.meals.create!(name: "Meal 1", calories: 100, eaten_at: Time.now)
+    other_user = FactoryGirl.create(:user, name: "User 1", email: "user1@example.com")
+    FactoryGirl.create(:meal, user: other_user, name: "Meal 1", calories: 100)
 
-    create_user_and_sign_in
+    sign_in(admin)
 
     visit meals_path
 
@@ -73,10 +84,10 @@ feature "Managing meals" do
   end
 
   scenario "are removed", js: true do
-    other_user = create_user(name: "User 1", email: "user1@example.com")
-    other_user.meals.create!(name: "Meal 1", calories: 100, eaten_at: Time.now)
+    other_user = FactoryGirl.create(:user, name: "User 1", email: "user1@example.com")
+    FactoryGirl.create(:meal, user: other_user, name: "Meal 1", calories: 100)
 
-    create_user_and_sign_in
+    sign_in(admin)
 
     visit meals_path
 

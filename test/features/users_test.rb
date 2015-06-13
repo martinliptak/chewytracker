@@ -1,6 +1,8 @@
 require "test_helper"
 
 feature "Users" do
+  let(:user) { FactoryGirl.create(:user) }
+  
   scenario "Signing up with valid inputs", js: true do
     visit welcome_path
 
@@ -38,7 +40,7 @@ feature "Users" do
   end
 
   scenario "Changing settings", js: true do
-    create_user_and_sign_in
+    sign_in(user)
 
     click_link "I Am Grook"
     click_link "Settings"

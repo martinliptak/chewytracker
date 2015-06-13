@@ -1,6 +1,7 @@
 class MealsController < ApplicationController
   before_action :authenticate!
-  before_action :find_meal, only: [:edit, :update, :destroy]
+  
+  load_and_authorize_resource
 
   def dashboard
     @meals = current_user.meals.order("id DESC")
@@ -32,7 +33,7 @@ class MealsController < ApplicationController
   end
 
   def create
-    @meal = Meal.new(meal_parameters)
+    @meal = Meal.new(meal_params)
     @meal.user = current_user
     if @meal.save
       redirect_via_turbolinks_to :dashboard
@@ -43,7 +44,7 @@ class MealsController < ApplicationController
   end
 
   def update
-    if @meal.update_attributes(meal_parameters)
+    if @meal.update_attributes(meal_params)
       redirect_via_turbolinks_to action: session[:from]
     end
   end
@@ -55,11 +56,7 @@ class MealsController < ApplicationController
 
   private
 
-    def meal_parameters
+    def meal_params
       params.require(:meal).permit(:name, :calories, :eaten_at)
-    end
-
-    def find_meal
-      @meal = Meal.find(params[:id])
     end
 end

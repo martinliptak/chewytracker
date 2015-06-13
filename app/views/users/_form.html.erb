@@ -5,6 +5,10 @@
   <%= f.password_field :password_confirmation %>
   <%= f.number_field :expected_calories, append: "KCAL" %>
 
+  <% if can? :update_role_of, User %>
+    <%= f.select :role, User::ROLES.map { |role| [role.humanize, role] } %>
+  <% end %>
+
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit @user.new_record? ? t(".sign_up") : t(".save"), class: "btn btn-primary" %>
