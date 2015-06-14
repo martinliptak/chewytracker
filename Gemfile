@@ -34,6 +34,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "bootstrap_form"
 gem 'cancancan', '~> 1.10'
+gem 'responders', '~> 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

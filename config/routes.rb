@@ -34,4 +34,12 @@ Rails.application.routes.draw do
 
     root 'meals#dashboard', as: :dashboard
   end
+
+  namespace :api do
+    namespace :v1, defaults: { format: :json } do
+      resource :session
+      resources :users
+      resources :meals
+    end
+  end
 end
