@@ -24,6 +24,7 @@ module Api
       end
       
       ##
+      # Use this action to authenticate users. If the provided credentials are correct, an access token is generated. 
       #
       # POST /api/v1/access_tokens
       # 
@@ -53,6 +54,7 @@ module Api
       end
       
       ##
+      # Use this action to end user sessions.
       #
       # DELETE /api/v1/access_tokens/:name
       #

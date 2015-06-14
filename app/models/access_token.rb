@@ -4,6 +4,10 @@ class AccessToken < ActiveRecord::Base
   before_create :generate_name
   before_create :set_expires_at
 
+  def expired?
+    expires_at < Time.now
+  end
+
   private
 
   def generate_name

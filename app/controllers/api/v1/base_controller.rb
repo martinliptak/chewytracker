@@ -7,9 +7,10 @@ module Api
 
       private
 
+        # Call from before actions if required
         def authenticate!
           access_token = AccessToken.where(name: params[:token]).first
-          if access_token
+          if access_token && !access_token.expired?
             @current_user = access_token.user
           else
             render :json => { message: "Not found" }, :status => :unauthorized 
@@ -20,6 +21,8 @@ module Api
         def current_user
           @current_user
         end
+
+        # Responses for exceptions
 
         rescue_from ActiveRecord::RecordNotFound do |exception|
           render :json => { message: "Not found" }, :status => :not_found

@@ -4,6 +4,9 @@ module Api
       before_action :authenticate!
       load_and_authorize_resource except: :index
       
+      # Only these fields are exposed
+      EXPOSED_FIELDS = [:id, :name, :calories, :eaten_at]
+
       ##
       #
       # GET /api/v1/meals/
@@ -45,7 +48,7 @@ module Api
         meals = meals.where("eaten_at::time >= ?", params[:time_from]) if params[:time_from].present?
         meals = meals.where("eaten_at::time <= ?", params[:time_to]) if params[:time_to].present?
 
-        render json: meals.order("id DESC")
+        render json: meals.order("id DESC").to_json(only: EXPOSED_FIELDS)
       end
 
       ##
@@ -70,7 +73,7 @@ module Api
       #   => {"name"=>"Double Cheese Burger","calories"=>1000000,"eaten_at"=>"2015-06-28T13:23:33.525Z"}
       #
       def show
-        render json: @meal
+        render json: @meal.to_json(only: EXPOSED_FIELDS)
       end
 
       ##
@@ -98,7 +101,7 @@ module Api
         @meal.user = current_user
         @meal.save!
 
-        render json: @meal, status: :created
+        render json: @meal.to_json(only: EXPOSED_FIELDS), status: :created
       end
 
       ##

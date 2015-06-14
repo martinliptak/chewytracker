@@ -4,6 +4,7 @@ module Api
       before_action :authenticate!, except: :create
       load_and_authorize_resource
 
+      # Don't expose fields like password_digest
       EXPOSED_FIELDS = [:id, :name, :email, :role, :created_at, :updated_at]
       EXPOSED_METHODS = [:expected_calories]
 
