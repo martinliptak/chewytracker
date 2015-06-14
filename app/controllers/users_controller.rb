@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.delete
+    @user.destroy
     redirect_via_turbolinks_to users_path
   end
 

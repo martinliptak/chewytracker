@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
   validates_presence_of :password, on: :create
   validates_confirmation_of :password, on: :create
 
-  has_many :meals
+  has_many :meals, dependent: :destroy
+  has_many :access_token, dependent: :destroy
 
   def expected_calories
     settings[:expected_calories] || 2000

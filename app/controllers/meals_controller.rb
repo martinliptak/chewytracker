@@ -50,7 +50,7 @@ class MealsController < ApplicationController
   end
 
   def destroy
-    @meal.delete
+    @meal.destroy
     redirect_via_turbolinks_to action: session[:from]
   end
 

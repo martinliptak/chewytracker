@@ -7,36 +7,34 @@ module Api
 
       private
 
-        def current_user
-          @current_user ||= User.find(session[:api_v1_user_id]) if session[:api_v1_user_id]
-        end 
-
-        class BadRequest < StandardError
-        end
-        
-        rescue_from BadRequest do |exception|
-          render :json => { message: exception.message }, :status => :bad_request
-        end
-
-        def included_fields(default_fields)
-          params[:include].kind_of?(Array) ? params[:include] : default_fields
-        end
-
-        def check_fields!(default_fields, exposed_fields)
-          unknown_fields = included_fields(default_fields).map(&:to_s) - exposed_fields.map(&:to_s)
-          if unknown_fields.any?
-            raise BadRequest.new("Unknown fields: #{unknown_fields.join(", ")}") 
+        def authenticate!
+          access_token = AccessToken.where(name: params[:token]).first
+          if access_token
+            @current_user = access_token.user
+          else
+            render :json => { message: "Not found" }, :status => :unauthorized 
+            false
           end
         end
 
-        def extract_fields(object, default_fields, exposed_fields)
-          (included_fields(default_fields).map(&:to_s) & exposed_fields.map(&:to_s)).map { |field| 
-            [field, object.send(field)] 
-          }.to_h
+        def current_user
+          @current_user
+        end
+
+        rescue_from ActiveRecord::RecordNotFound do |exception|
+          render :json => { message: "Not found" }, :status => :not_found
+        end
+
+        rescue_from ActiveRecord::RecordInvalid do |exception|
+          render :json => { message: "Unprocessable entity" }, :status => :unprocessable_entity
         end
 
         rescue_from ActionController::ParameterMissing do |exception|
           render :json => { message: "Unprocessable entity" }, :status => :unprocessable_entity
+        end
+
+        rescue_from CanCan::AccessDenied do |exception|
+          render :json => { message: "Forbidden" }, :status => :forbidden
         end
     end
   end

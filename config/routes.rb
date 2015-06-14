@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1, defaults: { format: :json } do
       resource :session
+      resources :access_tokens, only: [:show, :create, :destroy], param: :name
       resources :users
       resources :meals
     end

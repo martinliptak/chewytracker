@@ -21,32 +21,36 @@ describe Ability do
     let(:ability) { Ability.new(user) }
 
     it "allows access to dashboard" do
+      ability.can?(:index_owned, Meal).must_equal true
       ability.can?(:dashboard, Meal).must_equal true
       ability.can?(:filter, Meal).must_equal true
       ability.can?(:new, Meal).must_equal true
       ability.can?(:create, Meal).must_equal true
     end
 
-    it "allows editing and destroying own meals" do
+    it "allows showing, editing and destroying own meals" do
       meal = FactoryGirl.build(:meal, user: user)
 
+      ability.can?(:show, meal).must_equal true
       ability.can?(:edit, meal).must_equal true
       ability.can?(:update, meal).must_equal true
       ability.can?(:destroy, meal).must_equal true
     end
 
-    it "refuses editing and destroying meals of others" do
+    it "refuses showing, editing and destroying meals of others" do
       meal = FactoryGirl.build(:meal, user: other_user)
 
+      ability.can?(:show, meal).must_equal false
       ability.can?(:edit, meal).must_equal false
       ability.can?(:update, meal).must_equal false
       ability.can?(:destroy, meal).must_equal false
     end
 
     it "allows accessing settings" do
-      ability.can?(:settings, User).must_equal true
-      ability.can?(:edit, User).must_equal true
-      ability.can?(:update, User).must_equal true
+      ability.can?(:settings, user).must_equal true
+      ability.can?(:edit, user).must_equal true
+      ability.can?(:update, user).must_equal true
+      ability.can?(:show, user).must_equal true
     end
 
     it "refuses listing of users" do

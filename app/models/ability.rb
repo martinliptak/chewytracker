@@ -18,15 +18,15 @@ class Ability
 
     def regular(user)
       # can access dashboard and create meals
-      can [:dashboard, :filter, :create], Meal
+      can [:index_owned, :dashboard, :filter, :create], Meal
 
-      # can edit and remove own meals
-      can [:update, :destroy], Meal do |meal|
+      # can show, edit and remove own meals
+      can [:show, :update, :destroy], Meal do |meal|
         meal.user == user
       end
 
       # can change user settings
-      can [:settings, :update], User do |u|
+      can [:show, :settings, :update], User do |u|
         u == user
       end
     end
