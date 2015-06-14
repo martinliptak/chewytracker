@@ -4,7 +4,10 @@ describe Api::V1::UsersController do
   let(:user) { FactoryGirl.create(:user, name: "User", email: "user@example.com") }
   let(:user_token) { FactoryGirl.create(:access_token, user: user) }
 
-  let(:admin) { FactoryGirl.create(:user, name: "Admin", email: "admin@example.com", role: "admin") }
+  let(:user_manager) { FactoryGirl.create(:user, name: "Admin", email: "user-manager@example.com", role: "user_manager") }
+  let(:user_manager_token) { FactoryGirl.create(:access_token, user: user_manager) }
+
+  let(:admin) { FactoryGirl.create(:user, name: "User", email: "admin@example.com", role: "admin") }
   let(:admin_token) { FactoryGirl.create(:access_token, user: admin) }
 
   describe :index do
@@ -24,11 +27,11 @@ describe Api::V1::UsersController do
       end
     end
 
-    describe "for admin" do
+    describe "for user_manager" do
       it "shows alls users" do
         user
 
-        get :index, token: admin_token.name, format: :json
+        get :index, token: user_manager_token.name, format: :json
 
         response.status.must_equal 200
 
@@ -59,7 +62,7 @@ describe Api::V1::UsersController do
       end
 
       it "refuses to show other user" do
-        get :show, token: user_token.name, id: admin.id, format: :json
+        get :show, token: user_token.name, id: user_manager.id, format: :json
 
         response.status.must_equal 403
       end
@@ -71,9 +74,9 @@ describe Api::V1::UsersController do
       end
     end
 
-    describe "for admin" do
+    describe "for user_manager" do
       it "shows other user" do
-        get :show, token: admin_token.name, id: user.id, format: :json
+        get :show, token: user_manager_token.name, id: user.id, format: :json
 
         response.status.must_equal 200
 
@@ -146,7 +149,7 @@ describe Api::V1::UsersController do
       end
 
       it "refuses to update user" do
-        put :update, token: user_token.name, id: admin.id, user: { name: "Garfield", email: "garfield@example.com", expected_calories: 1000 }, format: :json
+        put :update, token: user_token.name, id: user_manager.id, user: { name: "Garfield", email: "garfield@example.com", expected_calories: 1000 }, format: :json
 
         response.status.must_equal 403
       end
@@ -158,9 +161,9 @@ describe Api::V1::UsersController do
       end
     end
 
-    describe "admin" do
+    describe "user manager" do
       it "updates other user" do
-        put :update, token: admin_token.name, id: user.id, user: { name: "Garfield", email: "garfield@example.com", expected_calories: 1000 }, format: :json
+        put :update, token: user_manager_token.name, id: user.id, user: { name: "Garfield", email: "garfield@example.com", expected_calories: 1000 }, format: :json
 
         response.status.must_equal 204
 
@@ -170,6 +173,22 @@ describe Api::V1::UsersController do
         user.name.must_equal "Garfield"
         user.email.must_equal "garfield@example.com"
         user.expected_calories.must_equal 1000
+      end
+
+      it "refuses to update user role" do
+        put :update, token: user_manager_token.name, id: user_manager.id, user: { role: "admin" }, format: :json
+
+        user_manager.reload
+        user_manager.role.must_equal "user_manager"
+      end
+    end
+
+    describe "admin" do
+      it "updates user role" do
+        put :update, token: admin_token.name, id: user_manager.id, user: { role: "admin" }, format: :json
+
+        user_manager.reload
+        user_manager.role.must_equal "admin"
       end
     end
   end
@@ -183,21 +202,21 @@ describe Api::V1::UsersController do
       end
 
       it "refuses to destroy other user" do
-        delete :destroy, token: user_token.name, id: admin.id, format: :json
+        delete :destroy, token: user_token.name, id: user_manager.id, format: :json
 
         response.status.must_equal 403
       end
     end
 
-    describe "admin" do
+    describe "user manager" do
       it "destroys self" do
-        delete :destroy, token: admin_token.name, id: admin.id, format: :json
+        delete :destroy, token: user_manager_token.name, id: user_manager.id, format: :json
 
         response.status.must_equal 403
       end
 
       it "destroys other user" do
-        delete :destroy, token: admin_token.name, id: user.id, format: :json
+        delete :destroy, token: user_manager_token.name, id: user.id, format: :json
 
         response.status.must_equal 204
 
