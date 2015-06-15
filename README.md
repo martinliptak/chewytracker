@@ -44,4 +44,25 @@ resp = conn.get "/api/v1/meals/", token: token
 meals = JSON.parse(resp.body)
 ```
 
+## Requirements
+
+- PostgreSQL
+
 ## Setup
+
+```
+#!sh
+# install gems
+bundle install
+
+# prepare database
+rake db:create
+rake db:migrate
+rake db:seed
+
+# run tests
+rake test
+
+# run server
+rails s
+```
