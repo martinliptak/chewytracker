@@ -8,8 +8,8 @@ module Users
 
     class_methods do
       def authenticate_with_email_and_password(email, password)
-        user = find_by_email(email)
-        user if user && user.authenticate(password)
+        user = where(email: email).first
+        user && user.authenticate(password)
       end
     end
   end
