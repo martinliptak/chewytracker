@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.page(params[:page])
+
+    session[:return_to] = users_path
   end
 
   def new
@@ -21,6 +23,8 @@ class UsersController < ApplicationController
 
   def settings
     @user = current_user
+
+    session[:return_to] = dashboard_path
   end
 
   def edit
@@ -28,13 +32,13 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      redirect_via_turbolinks_to request.referer && URI(request.referer).path == settings_path ? dashboard_path : users_path
+      redirect_via_turbolinks_to (session[:return_to] || dashboard_path), notice: t("users.messages.update", name: @user.name)
     end
   end
 
   def destroy
     @user.destroy
-    redirect_via_turbolinks_to users_path
+    redirect_via_turbolinks_to users_path, notice: t("users.messages.destroy", name: @user.name)
   end
 
   private

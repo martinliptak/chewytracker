@@ -57,6 +57,7 @@ feature "Managing users" do
       click_button "Save"
     end
 
+    page.must_have_content "User I Am Grook 2 saved"
     page.must_have_content "I Am Grook 2"
     current_path.must_equal users_path
 
@@ -83,8 +84,8 @@ feature "Managing users" do
       click_button "Save"
     end
 
+    page.must_have_content "User I Am Grook 2 saved"
     page.must_have_content "I Am Grook 2"
-    current_path.must_equal users_path
 
     User.count.must_equal 2
 
@@ -103,7 +104,12 @@ feature "Managing users" do
     within "tr[data-id=\"#{user.id}\"]" do
       click_link "Remove"
     end
-    page.wont_have_content "User 1"
+    
+    page.must_have_content "User User 1 removed"
+    within "table" do
+      page.wont_have_content "User 1"
+    end
+
     current_path.must_equal users_path
 
     User.count.must_equal 1

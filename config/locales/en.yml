@@ -35,6 +35,8 @@ en:
       settings: "Settings"
       manage: "Manage"
   application:
+    messages:
+      unauthenticated: "You must be signed in!"
     filtered:
       filters_applied_warning_html: "<strong>Using filters!</strong> If you want to see all the meals, %{clear_filters_link_html}."
       clear_filters_link: "clear filters"
@@ -63,6 +65,10 @@ en:
       none_html: "There aren't any meals yet. Try %{new_meal_link_html}."
       new_meal_link_title: "adding your first meal"
   meals:
+    messages:
+      create: "New meal added."
+      update: "Meal %{name} saved."
+      destroy: "Meal %{name} removed."
     edit:
       back: "Back"
       title: "Edit meal"
@@ -84,6 +90,9 @@ en:
     unfiltered:
       none: "There aren't any meals yet. "
   users:
+    messages:
+      update: "User %{name} saved."
+      destroy: "User %{name} removed."
     edit:
       title: "Edit user"
     index:

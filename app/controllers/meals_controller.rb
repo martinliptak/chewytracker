@@ -19,7 +19,7 @@ class MealsController < ApplicationController
     @meal = Meal.new(meal_params)
     @meal.user = current_user
     if @meal.save
-      redirect_via_turbolinks_to :dashboard
+      redirect_via_turbolinks_to :dashboard, notice: t("meals.messages.create")
     end
   end
 
@@ -28,13 +28,13 @@ class MealsController < ApplicationController
 
   def update
     if @meal.update_attributes(meal_params)
-      redirect_via_turbolinks_to session[:return_to] || dashboard_path
+      redirect_via_turbolinks_to (session[:return_to] || dashboard_path), notice: t("meals.messages.update", name: @meal.name)
     end
   end
 
   def destroy
     @meal.destroy
-    redirect_via_turbolinks_to session[:return_to] || dashboard_path
+    redirect_via_turbolinks_to (session[:return_to] || dashboard_path), notice: t("meals.messages.destroy", name: @meal.name)
   end
 
   private

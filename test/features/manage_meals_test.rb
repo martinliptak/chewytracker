@@ -73,6 +73,7 @@ feature "Managing meals" do
     fill_in :meal_eaten_at, with: "2015-06-12T12:00:00"
     click_button "Save"
 
+    page.must_have_content "Meal New meal saved"
     page.must_have_content "All meals"
 
     Meal.count.must_equal 1
@@ -95,6 +96,7 @@ feature "Managing meals" do
       click_link "Remove"
     end
 
+    page.must_have_content "Meal Meal 1 removed"
     page.must_have_content "All meals"
 
     Meal.count.must_equal 0

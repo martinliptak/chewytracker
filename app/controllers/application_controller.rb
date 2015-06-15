@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
     helper_method :current_user
 
     def authenticate!
-      redirect_to sign_in_url if current_user.nil?
+      redirect_to sign_in_url, alert: t("application.messages.unauthenticated") if current_user.nil?
     end
 end
