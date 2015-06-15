@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     get "/settings" => "users#settings"
     delete "/sign_out" => "sessions#destroy"
 
-    root 'meals#dashboard', as: :dashboard
+    root 'dashboard#index', as: :dashboard
   end
 
   namespace :api do

@@ -22,8 +22,6 @@ describe Ability do
 
     it "allows access to dashboard" do
       ability.can?(:index_owned, Meal).must_equal true
-      ability.can?(:dashboard, Meal).must_equal true
-      ability.can?(:filter, Meal).must_equal true
       ability.can?(:new, Meal).must_equal true
       ability.can?(:create, Meal).must_equal true
     end

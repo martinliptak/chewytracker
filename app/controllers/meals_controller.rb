@@ -1,23 +1,15 @@
 class MealsController < ApplicationController
   before_action :authenticate!
   
-  load_and_authorize_resource
-
-  def dashboard
-    @meals = current_user.meals.page(params[:page])
-    @meals = @meals.date_from(params[:filter_date_from]) if params[:filter_date_from].present?
-    @meals = @meals.date_to(params[:filter_date_to]) if params[:filter_date_to].present?
-    @meals = @meals.time_from(params[:filter_time_from]) if params[:filter_time_from].present?
-    @meals = @meals.time_to(params[:filter_time_to]) if params[:filter_time_to].present?
-
-    session[:from] = :dashboard
-  end
+  load_and_authorize_resource except: :index
 
   def index
+    authorize! :index, Meal
+
     @meals = Meal.page params[:page]
     @meals = @meals.user_id(params[:filter_user_id]) if params[:filter_user_id].present?
 
-    session[:from] = :index
+    session[:return_to] = meals_path
   end
 
   def new
@@ -37,13 +29,13 @@ class MealsController < ApplicationController
 
   def update
     if @meal.update_attributes(meal_params)
-      redirect_via_turbolinks_to action: session[:from]
+      redirect_via_turbolinks_to session[:return_to] || dashboard_path
     end
   end
 
   def destroy
     @meal.destroy
-    redirect_via_turbolinks_to action: session[:from]
+    redirect_via_turbolinks_to session[:return_to] || dashboard_path
   end
 
   private

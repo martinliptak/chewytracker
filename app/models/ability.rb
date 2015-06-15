@@ -18,7 +18,7 @@ class Ability
 
     def regular(user)
       # can access dashboard and create meals
-      can [:index_owned, :dashboard, :filter, :create], Meal
+      can [:index_owned, :create], Meal
 
       # can show, edit and remove own meals
       can [:show, :update, :destroy], Meal do |meal|

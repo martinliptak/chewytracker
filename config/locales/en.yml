@@ -32,17 +32,12 @@ en:
       toggle_navigation: "Toggle navigation"
       settings: "Settings"
       manage: "Manage"
-  meals:
-    dashboard:
-      title: "My meals"
-      new_meal: "Add new meal"
-    edit:
-      back: "Back"
-      title: "Edit meal"
+  application:
     filtered:
       filters_applied_warning_html: "<strong>Using filters!</strong> If you want to see all the meals, %{clear_filters_link_html}."
       clear_filters_link: "clear filters"
       none_html: "There are no results. Try refining your filter conditions or %{clear_filters_link_html}."
+  dashboard:
     filters:
       title: "Filters"
       filter_date_from: "From date"
@@ -50,7 +45,26 @@ en:
       filter_time_from: "From time"
       filter_time_to: "To time"
       submit: "Apply"
-    filters_all:
+    index:
+      title: "My meals"
+      new_meal: "Add new meal"
+    table:
+      edit: "Edit"
+      destroy: "Remove"
+      destroy_confirm: "Are you sure to remove %{name}?"
+    total:
+      enough_alert: "That's enough for today!"
+      expected: "Expected"
+      title: "Total calories today"
+      total: "Total"
+    unfiltered:
+      none_html: "There aren't any meals yet. Try %{new_meal_link_html}."
+      new_meal_link_title: "adding your first meal"
+  meals:
+    edit:
+      back: "Back"
+      title: "Edit meal"
+    filters:
       title: "Filters"
       filter_user: "User"
       submit: "Apply"
@@ -65,14 +79,8 @@ en:
       edit: "Edit"
       destroy: "Remove"
       destroy_confirm: "Are you sure to remove %{name}?"
-    total:
-      enough_alert: "That's enough for today!"
-      expected: "Expected"
-      title: "Total calories today"
-      total: "Total"
     unfiltered:
-      none_html: "There aren't any meals yet. Try %{new_meal_link_html}."
-      new_meal_link_title: "adding your first meal"
+      none: "There aren't any meals yet. "
   users:
     edit:
       title: "Edit user"

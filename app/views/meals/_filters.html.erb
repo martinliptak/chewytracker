@@ -2,10 +2,10 @@
   <div class="panel-heading"><%= t ".title" %></div>
   <div class="panel-body">
     <%= bootstrap_form_tag method: :get, remote: true do |f| %>
-      <%= f.date_field :filter_date_from, value: params[:filter_date_from], label: t(".filter_date_from") %>
-      <%= f.date_field :filter_date_to, value: params[:filter_date_to], label: t(".filter_date_to") %>
-      <%= f.time_field :filter_time_from, value: params[:filter_time_from], label: t(".filter_time_from") %>
-      <%= f.time_field :filter_time_to, value: params[:filter_time_to], label: t(".filter_time_to") %>
+      <%= f.collection_select :filter_user_id, User.all, :id, :name, include_blank: true, value: params[:filter_user_id], label: t(".filter_user") %>
+
+      <p class="text-muted">IDEA: Other filters relevant for admins</p>
+
       <%= f.submit t(".submit") %>
     <% end %>
   </div>

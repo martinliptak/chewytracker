@@ -4,13 +4,8 @@
   </div>
   <div class="row">
     <div class="col-sm-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">Stats</div>
-
-        <p class="alert text-muted">IDEA: Stats relevant for admins</p>
-      </div>
-
-      <%= render "filters_all" %>
+      <%= render "stats" %>
+      <%= render "filters" %>
     </div>
     <div class="col-sm-8" id="meals">
       <%= render filtering ? "filtered" : "unfiltered" %>
