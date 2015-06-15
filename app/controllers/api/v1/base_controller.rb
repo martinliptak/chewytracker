@@ -13,7 +13,7 @@ module Api
           if access_token && !access_token.expired?
             @current_user = access_token.user
           else
-            render :json => { message: "Not found" }, :status => :unauthorized 
+            render :json => { message: "Unauthorized" }, :status => :unauthorized 
             false
           end
         end
