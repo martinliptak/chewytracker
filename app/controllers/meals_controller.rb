@@ -6,8 +6,9 @@ class MealsController < ApplicationController
   def index
     authorize! :index, Meal
 
-    @meals = Meal.page params[:page]
-    @meals = @meals.user_id(params[:filter_user_id]) if params[:filter_user_id].present?
+    @meals = Meal
+      .filter(params.slice(:filter_user_id))
+      .page(params[:page])
 
     session[:return_to] = meals_path
   end
