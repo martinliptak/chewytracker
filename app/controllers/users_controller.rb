@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource 
 
   def index
-    @users = User.order("id DESC")
+    @users = User.order("id DESC").page params[:page]
   end
 
   def new

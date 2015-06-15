@@ -26,8 +26,8 @@ Rails.application.routes.draw do
     get "/settings" => "users#settings"
 
     resources :meals do
-      post :filter, on: :collection
-      post :filter_all, on: :collection
+      get :filter, on: :collection
+      get :filter_all, on: :collection
     end
 
     delete "/sign_out" => "sessions#destroy"

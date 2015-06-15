@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading"><%= t ".title" %></div>
   <div class="panel-body">
-    <%= bootstrap_form_tag url: filter_all_meals_path, remote: true do |f| %>
+    <%= bootstrap_form_tag url: filter_all_meals_path, method: :get, remote: true do |f| %>
       <%= f.collection_select :filter_user_id, User.all, :id, :name, include_blank: true, value: params[:filter_user_id], label: t(".filter_user") %>
 
       <p class="text-muted">IDEA: Other filters relevant for admins</p>

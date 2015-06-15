@@ -4,17 +4,17 @@ class MealsController < ApplicationController
   load_and_authorize_resource
 
   def dashboard
-    @meals = current_user.meals.order("id DESC")
+    @meals = current_user.meals.order("eaten_at DESC").page params[:page]
     session[:from] = :dashboard
   end
 
   def index
-    @meals = Meal.order("id DESC")
+    @meals = Meal.order("eaten_at DESC").page params[:page]
     session[:from] = :index
   end
 
   def filter
-    @meals = current_user.meals.order("id DESC")
+    @meals = current_user.meals.order("eaten_at DESC").page params[:page]
     @meals.where!("eaten_at::date >= ?", params[:filter_date_from]) if params[:filter_date_from].present?
     @meals.where!("eaten_at::date <= ?", params[:filter_date_to]) if params[:filter_date_to].present?
     @meals.where!("eaten_at::time >= ?", params[:filter_time_from]) if params[:filter_time_from].present?
@@ -22,7 +22,7 @@ class MealsController < ApplicationController
   end
 
   def filter_all
-    @meals = Meal.order("id DESC")
+    @meals = Meal.order("eaten_at DESC").page params[:page]
     @meals.where!("user_id = ?", params[:filter_user_id]) if params[:filter_user_id].present?
 
     render :filter
