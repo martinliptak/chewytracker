@@ -24,11 +24,11 @@ en:
         calories: "e.g. 960"
   layouts:
     application:
-      title: "MealTracker"
+      title: "ChewyTracker"
     footer:
       text: "Built by Martin"
     navbar:
-      brand: "MealTracker"
+      brand: "ChewyTracker"
       sign_in: "Sign in"
       sign_out: "Sign out"
       toggle_navigation: "Toggle navigation"
@@ -106,7 +106,7 @@ en:
       submit: "Sign in"
   welcome:
     index:
-      title: "MealTracker"
+      title: "ChewyTracker"
       description: "Track your daily calories."
       sign_up: "Sign up"
       or: "or"
