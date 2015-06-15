@@ -24,11 +24,13 @@ en:
         calories: "e.g. 960"
   layouts:
     application:
+      title: "MealTracker"
+    footer:
+      text: "Built by Martin"
+    navbar:
       brand: "MealTracker"
-      footer: "Built by Martin"
       sign_in: "Sign in"
       sign_out: "Sign out"
-      title: "MealTracker"
       toggle_navigation: "Toggle navigation"
       settings: "Settings"
       manage: "Manage"
