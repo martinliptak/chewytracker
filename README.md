@@ -1,6 +1,6 @@
 # README #
 
-Chewytracker keeps track of your calories.
+ChewyTracker keeps track of your calories.
 
 ## Assignment
 
@@ -22,6 +22,26 @@ Write an application for the input of calories
 
 [http://chewytracker.herokuapp.com/](http://chewytracker.herokuapp.com/)
 
-## Using API
+## API
+
+
+```
+#!ruby
+
+require "faraday"
+require "json"
+
+conn = Faraday.new(url: "http://chewytracker.herokuapp.com/")
+
+# authenticate
+resp = conn.post "/api/v1/access_tokens/", credentials: { email: "...", password: "..." }
+body = JSON.parse(resp.body)
+token = body["name"]
+user_id = body["user_id"]
+
+# list meals
+resp = conn.get "/api/v1/meals/", token: token
+meals = JSON.parse(resp.body)
+```
 
 ## Setup
