@@ -22,14 +22,9 @@ Rails.application.routes.draw do
   
   constraints AuthenticatedConstraints.new do
     resources :users, except: [:new, :create]
+    resources :meals
 
     get "/settings" => "users#settings"
-
-    resources :meals do
-      get :filter, on: :collection
-      get :filter_all, on: :collection
-    end
-
     delete "/sign_out" => "sessions#destroy"
 
     root 'meals#dashboard', as: :dashboard

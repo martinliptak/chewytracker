@@ -13,11 +13,7 @@
       <%= render "filters_all" %>
     </div>
     <div class="col-sm-8" id="meals">
-      <% if @meals.any? %>
-        <%= render "table" %>
-      <% else %>
-        <%= t ".none" %>
-      <% end %>
+      <%= render filtering ? "filtered" : "unfiltered" %>
     </div>
   </div>
 </div>

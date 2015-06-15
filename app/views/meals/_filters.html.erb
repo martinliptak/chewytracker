@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading"><%= t ".title" %></div>
   <div class="panel-body">
-    <%= bootstrap_form_tag url: filter_meals_path, method: :get, remote: true do |f| %>
+    <%= bootstrap_form_tag method: :get, remote: true do |f| %>
       <%= f.date_field :filter_date_from, value: params[:filter_date_from], label: t(".filter_date_from") %>
       <%= f.date_field :filter_date_to, value: params[:filter_date_to], label: t(".filter_date_to") %>
       <%= f.time_field :filter_time_from, value: params[:filter_time_from], label: t(".filter_time_from") %>

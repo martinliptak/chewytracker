@@ -4,28 +4,20 @@ class MealsController < ApplicationController
   load_and_authorize_resource
 
   def dashboard
-    @meals = current_user.meals.order("eaten_at DESC").page params[:page]
+    @meals = current_user.meals.page(params[:page])
+    @meals = @meals.date_from(params[:filter_date_from]) if params[:filter_date_from].present?
+    @meals = @meals.date_to(params[:filter_date_to]) if params[:filter_date_to].present?
+    @meals = @meals.time_from(params[:filter_time_from]) if params[:filter_time_from].present?
+    @meals = @meals.time_to(params[:filter_time_to]) if params[:filter_time_to].present?
+
     session[:from] = :dashboard
   end
 
   def index
-    @meals = Meal.order("eaten_at DESC").page params[:page]
+    @meals = Meal.page params[:page]
+    @meals = @meals.user_id(params[:filter_user_id]) if params[:filter_user_id].present?
+
     session[:from] = :index
-  end
-
-  def filter
-    @meals = current_user.meals.order("eaten_at DESC").page params[:page]
-    @meals.where!("eaten_at::date >= ?", params[:filter_date_from]) if params[:filter_date_from].present?
-    @meals.where!("eaten_at::date <= ?", params[:filter_date_to]) if params[:filter_date_to].present?
-    @meals.where!("eaten_at::time >= ?", params[:filter_time_from]) if params[:filter_time_from].present?
-    @meals.where!("eaten_at::time <= ?", params[:filter_time_to]) if params[:filter_time_to].present?
-  end
-
-  def filter_all
-    @meals = Meal.order("eaten_at DESC").page params[:page]
-    @meals.where!("user_id = ?", params[:filter_user_id]) if params[:filter_user_id].present?
-
-    render :filter
   end
 
   def new

@@ -41,12 +41,12 @@ module Api
 
         meals = Meal
 
-        meals = meals.where("user_id = ?", params[:user_id]) if params[:user_id].present?
+        meals = meals.user_id(params[:user_id]) if params[:user_id].present?
 
-        meals = meals.where("eaten_at::date >= ?", params[:date_from]) if params[:date_from].present?
-        meals = meals.where("eaten_at::date <= ?", params[:date_to]) if params[:date_to].present?
-        meals = meals.where("eaten_at::time >= ?", params[:time_from]) if params[:time_from].present?
-        meals = meals.where("eaten_at::time <= ?", params[:time_to]) if params[:time_to].present?
+        meals = meals.date_from(params[:date_from]) if params[:date_from].present?
+        meals = meals.date_to(params[:date_to]) if params[:date_to].present?
+        meals = meals.time_from(params[:time_from]) if params[:time_from].present?
+        meals = meals.time_to(params[:time_to]) if params[:time_to].present?
 
         render json: meals.order("id DESC").to_json(only: EXPOSED_FIELDS)
       end

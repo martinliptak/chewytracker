@@ -34,14 +34,12 @@ en:
       manage: "Manage"
   meals:
     dashboard:
-      none_html: "There aren't any meals yet. Try %{new_meal_link_html}."
-      new_meal_link_title: "adding your first meal"
       title: "My meals"
       new_meal: "Add new meal"
     edit:
       back: "Back"
       title: "Edit meal"
-    filtered_meals:
+    filtered:
       filters_applied_warning_html: "<strong>Using filters!</strong> If you want to see all the meals, %{clear_filters_link_html}."
       clear_filters_link: "clear filters"
       none_html: "There are no results. Try refining your filter conditions or %{clear_filters_link_html}."
@@ -58,7 +56,6 @@ en:
       submit: "Apply"
     index:
       title: "All meals"
-      none: "There aren't any meals yet."
     form:
       submit: "Save"
     new:
@@ -73,6 +70,9 @@ en:
       expected: "Expected"
       title: "Total calories today"
       total: "Total"
+    unfiltered:
+      none_html: "There aren't any meals yet. Try %{new_meal_link_html}."
+      new_meal_link_title: "adding your first meal"
   users:
     edit:
       title: "Edit user"

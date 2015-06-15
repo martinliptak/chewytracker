@@ -16,11 +16,7 @@
       <% end %>
     </div>
     <div class="col-sm-8" id="meals">
-      <% if @meals.any? %>
-        <%= render "table" %>
-      <% else %>
-        <%= t ".none_html", new_meal_link_html: link_to(t(".new_meal_link_title"), new_meal_path) %>
-      <% end %>
+      <%= render filtering ? "filtered" : "unfiltered" %>
     </div>
   </div>
 </div>

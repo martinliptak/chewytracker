@@ -1,1 +1,1 @@
-$("#meals").html("<%= j render "table" %>");
+$("#meals").html("<%= j render filtering ? "filtered" : "unfiltered" %>");
