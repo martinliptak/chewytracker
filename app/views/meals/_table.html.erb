@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @meals.each do |meal| %>
+    <% @meals.includes(:user).each do |meal| %>
       <tr data-id="<%= meal.user.id %>">
         <td><%= meal.name %></td>
         <td><%= number_with_delimiter meal.calories %></td>

@@ -55,5 +55,8 @@ group :development, :test do
   gem "launchy"
   gem "factory_girl_rails"
   gem "timecop"
+
+  # Performance
+  gem "bullet"
 end
 

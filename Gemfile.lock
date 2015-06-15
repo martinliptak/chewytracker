@@ -44,6 +44,9 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap_form (2.3.0)
     builder (3.2.2)
+    bullet (4.14.7)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.9.0)
     byebug (5.0.0)
       columnize (= 0.9.0)
     cancancan (1.10.1)
@@ -178,6 +181,7 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uniform_notifier (1.9.0)
     web-console (2.1.2)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -192,6 +196,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap_form
+  bullet
   byebug
   cancancan (~> 1.10)
   capybara
