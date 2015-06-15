@@ -8,15 +8,20 @@ class SessionForm
   end
 
   attr_accessor :email, :password
-  attr_reader :user
+  attr_reader :user, :session
+
+  def initialize(session)
+    @session = session
+  end
 
   def submit(params)
-    @user = User.find_by_email(params[:session_form][:email])
-    if @user && @user.authenticate(params[:session_form][:password])
+    @user = User.find_by_email(params[:email])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = user.id
       true
     else
       errors[:password] << "Email or password is invalid"
-      self.email = params[:session_form][:email]
+      self.email = params[:email]
       false
     end
   end

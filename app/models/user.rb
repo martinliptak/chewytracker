@@ -1,13 +1,11 @@
 class User < ActiveRecord::Base
+  include Users::Settings
+
   ROLES = %w{regular user_manager admin}
   DEFAULT_ROLE = "regular"
 
   after_initialize :default_values
-
-  has_secure_password
   
-  serialize :settings, Hash
-
   validates_presence_of :name, :email
   validates_uniqueness_of :email
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
@@ -16,15 +14,11 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password, on: :create
 
   has_many :meals, dependent: :destroy
-  has_many :access_token, dependent: :destroy
+  has_many :access_tokens, dependent: :destroy
 
-  def expected_calories
-    settings[:expected_calories] || 2000
-  end
+  has_secure_password
 
-  def expected_calories=(v)
-    settings[:expected_calories] = v.to_i
-  end
+  default_scope ->{ order("id DESC") }
 
   def total_calories
     meals.where("eaten_at::date = current_date").sum(:calories)

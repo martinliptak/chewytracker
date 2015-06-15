@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     if user
-      send user.role, user
+      send(user.role, user)
     else
       unauthenticated(user)
     end

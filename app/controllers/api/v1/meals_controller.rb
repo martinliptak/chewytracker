@@ -39,16 +39,9 @@ module Api
           authorize! :index, Meal
         end
 
-        meals = Meal
+        meals = Meal.filter(params.slice(:user_id, :date_from, :date_to, :time_from, :time_to))
 
-        meals = meals.user_id(params[:user_id]) if params[:user_id].present?
-
-        meals = meals.date_from(params[:date_from]) if params[:date_from].present?
-        meals = meals.date_to(params[:date_to]) if params[:date_to].present?
-        meals = meals.time_from(params[:time_from]) if params[:time_from].present?
-        meals = meals.time_to(params[:time_to]) if params[:time_to].present?
-
-        render json: meals.order("id DESC").to_json(only: EXPOSED_FIELDS)
+        render json: meals.to_json(only: EXPOSED_FIELDS)
       end
 
       ##

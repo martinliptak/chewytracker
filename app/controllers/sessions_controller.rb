@@ -1,13 +1,11 @@
 class SessionsController < ApplicationController
-
   def new
-    @session_form = SessionForm.new
+    @session_form = SessionForm.new(session)
   end
   
   def create
-    @session_form = SessionForm.new
-    if @session_form.submit(params)
-      session[:user_id] = @session_form.user.id
+    @session_form = SessionForm.new(session)
+    if @session_form.submit(session_params)
       redirect_via_turbolinks_to dashboard_path
     end
   end
@@ -16,4 +14,10 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_via_turbolinks_to welcome_url
   end
+
+  private
+
+    def session_params
+      params.require(:session_form).permit(:email, :password)
+    end
 end

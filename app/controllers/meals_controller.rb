@@ -1,11 +1,9 @@
 class MealsController < ApplicationController
   before_action :authenticate!
   
-  load_and_authorize_resource except: :index
+  load_and_authorize_resource
 
   def index
-    authorize! :index, Meal
-
     @meals = Meal
       .filter(params.slice(:filter_user_id))
       .page(params[:page])

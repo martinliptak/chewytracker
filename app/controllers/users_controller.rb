@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  before_action :authenticate!, only: [:settings, :edit, :update, :destroy]
+  before_action :authenticate!, except: [:new, :create]
   
   load_and_authorize_resource 
 
   def index
-    @users = User.order("id DESC").page params[:page]
+    @users = User.page(params[:page])
   end
 
   def new

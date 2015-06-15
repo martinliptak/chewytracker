@@ -1,9 +1,10 @@
 class Meal < ActiveRecord::Base
   include Filterable
-  
-  belongs_to :user
 
   validates_presence_of :name, :calories, :eaten_at
+  validates_numericality_of :calories, only_integer: true, greater_than_or_equal_to: 0
+
+  belongs_to :user
 
   default_scope ->{ order("eaten_at DESC") }
 
