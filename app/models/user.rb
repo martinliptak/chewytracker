@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include Users::Authentication
   include Users::Settings
 
   ROLES = %w{regular user_manager admin}
@@ -15,8 +16,6 @@ class User < ActiveRecord::Base
 
   has_many :meals, dependent: :destroy
   has_many :access_tokens, dependent: :destroy
-
-  has_secure_password
 
   default_scope ->{ order("id DESC") }
 

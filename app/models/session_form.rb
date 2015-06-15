@@ -15,13 +15,13 @@ class SessionForm
   end
 
   def submit(params)
-    @user = User.find_by_email(params[:email])
-    if @user && @user.authenticate(params[:password])
+    self.email = params[:email]
+    user = User.authenticate_with_email_and_password(email, params[:password])
+    if user
       session[:user_id] = user.id
       true
     else
       errors[:password] << "Email or password is invalid"
-      self.email = params[:email]
       false
     end
   end

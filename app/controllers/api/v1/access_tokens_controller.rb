@@ -45,8 +45,8 @@ module Api
       #   => {"name"=>"25be778dc2ed161b63eb07684d45a561","user_id"=>149,"expires_at"=>"2015-06-28T13:23:33.525Z"}
       #
       def create
-        user = User.find_by_email(create_params[:email])
-        if user && user.authenticate(create_params[:password])
+        user = User.authenticate_with_email_and_password(create_params[:email], create_params[:password])
+        if user
           render :json => AccessToken.create!(user: user), :status => :created
         else
           render :json => { message: "Incorrect credentials" }, :status => :unauthorized
