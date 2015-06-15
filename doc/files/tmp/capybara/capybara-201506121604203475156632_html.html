@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>capybara-201506121604203475156632.html</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            capybara-201506121604203475156632.html
+        </h1>
+        <ul class="files">
+            <li>tmp/capybara/capybara-201506121604203475156632.html</li>
+            <li>Last modified: 2015-06-12 16:04:20 +0200</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>&lt;!DOCTYPE html&gt;&lt;html lang=“en”&gt;&lt;head&gt;</p>
+
+<pre><code>  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=Edge,chrome=1&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;MealTracker&lt;/title&gt;
+
+  &lt;!-- Le HTML5 shim, for IE6-8 support of HTML elements --&gt;
+  &lt;!--[if lt IE 9]&gt;
+    &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;![endif]--&gt;
+
+  &lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;/assets/application.css&quot;&gt;
+  &lt;script src=&quot;/assets/application.js&quot; data-turbolinks-track=&quot;true&quot;&gt;&lt;/script&gt;
+
+  &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;/images/favicon.ico&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class=&quot;navbar navbar-inverse navbar-fixed-top&quot; role=&quot;navigation&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;navbar-header&quot;&gt;
+          &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;
+            &lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;
+            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+          &lt;/button&gt;
+          &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;MealTracker&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;navbar-collapse collapse&quot;&gt;
+            &lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;
+              &lt;li class=&quot;dropdown&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;I Am Grook &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot;&gt;
+                  &lt;li&gt;&lt;a data-remote=&quot;true&quot; rel=&quot;nofollow&quot; data-method=&quot;delete&quot; href=&quot;/sign_out&quot;&gt;Sign out&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;&lt;!--/.navbar-collapse --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+&lt;div class=&quot;page-header&quot;&gt;
+  &lt;div class=&quot;pull-right&quot;&gt;
+    &lt;a class=&quot;btn btn-primary&quot; href=&quot;/meals/new&quot;&gt;
+      &lt;span class=&quot;glyphicon glyphicon-plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Add new meal</code></pre>
+
+<p>&lt;/a&gt;    &lt;/div&gt;</p>
+
+<pre><code>  &lt;h1&gt;My meals&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-sm-4&quot;&gt;
+      &lt;div class=&quot;panel panel-success&quot;&gt;
+&lt;div class=&quot;panel-heading&quot;&gt;Total calories today&lt;/div&gt;
+&lt;div class=&quot;panel-body&quot;&gt;
+    &lt;div class=&quot;progress&quot;&gt;
+      &lt;div class=&quot;progress-bar progress-bar-striped progress-bar-success&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;30.0&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 30.0%;&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;table class=&quot;table&quot;&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;th&gt;Total&lt;/th&gt;&lt;td&gt;300&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;th&gt;Expected&lt;/th&gt;&lt;td&gt;1000&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+
+<p>&lt;/div&gt;</p>
+
+<pre><code>      &lt;div class=&quot;panel panel-default&quot;&gt;
+&lt;div class=&quot;panel-heading&quot;&gt;Filters&lt;/div&gt;
+&lt;div class=&quot;panel-body&quot;&gt;
+  &lt;form role=&quot;form&quot; action=&quot;/meals/filter&quot; accept-charset=&quot;UTF-8&quot; data-remote=&quot;true&quot; method=&quot;post&quot;&gt;&lt;input name=&quot;utf8&quot; type=&quot;hidden&quot; value=&quot;✓&quot;&gt;
+    &lt;div class=&quot;form-group&quot;&gt;&lt;label class=&quot;control-label&quot; for=&quot;filter_date_from&quot;&gt;From date&lt;/label&gt;&lt;input class=&quot;form-control&quot; name=&quot;filter_date_from&quot; id=&quot;filter_date_from&quot; type=&quot;date&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;&lt;label class=&quot;control-label&quot; for=&quot;filter_date_to&quot;&gt;To date&lt;/label&gt;&lt;input class=&quot;form-control&quot; name=&quot;filter_date_to&quot; id=&quot;filter_date_to&quot; type=&quot;date&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;&lt;label class=&quot;control-label&quot; for=&quot;filter_time_from&quot;&gt;From time&lt;/label&gt;&lt;input class=&quot;form-control&quot; name=&quot;filter_time_from&quot; id=&quot;filter_time_from&quot; type=&quot;time&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;&lt;label class=&quot;control-label&quot; for=&quot;filter_time_to&quot;&gt;To time&lt;/label&gt;&lt;input class=&quot;form-control&quot; name=&quot;filter_time_to&quot; id=&quot;filter_time_to&quot; type=&quot;time&quot;&gt;&lt;/div&gt;
+    &lt;input type=&quot;submit&quot; name=&quot;commit&quot; value=&quot;Apply&quot; class=&quot;btn btn-default&quot;&gt;</code></pre>
+
+<p>&lt;/form&gt;  &lt;/div&gt; &lt;/div&gt;</p>
+
+<pre><code>  &lt;/div&gt;
+  &lt;div class=&quot;col-sm-8&quot; id=&quot;meals&quot;&gt;
+      &lt;table class=&quot;table table-striped&quot;&gt;
+&lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Name&lt;/th&gt;
+    &lt;th&gt;Calories&lt;/th&gt;
+    &lt;th&gt;When&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Meal 2&lt;/td&gt;
+      &lt;td&gt;200&lt;/td&gt;
+      &lt;td&gt;12 Jun 14:04&lt;/td&gt;
+      &lt;td&gt;
+        &lt;div class=&quot;pull-right&quot;&gt;
+          &lt;a class=&quot;btn btn-primary&quot; href=&quot;/meals/5/edit&quot;&gt;Edit&lt;/a&gt;
+          &lt;a class=&quot;btn btn-danger&quot; data-confirm=&quot;Are you sure to remove Meal 2?&quot; data-remote=&quot;true&quot; rel=&quot;nofollow&quot; data-method=&quot;delete&quot; href=&quot;/meals/5&quot;&gt;Remove&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Meal 1&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;12 Jun 14:04&lt;/td&gt;
+      &lt;td&gt;
+        &lt;div class=&quot;pull-right&quot;&gt;
+          &lt;a class=&quot;btn btn-primary&quot; href=&quot;/meals/4/edit&quot;&gt;Edit&lt;/a&gt;
+          &lt;a class=&quot;btn btn-danger&quot; data-confirm=&quot;Are you sure to remove Meal 1?&quot; data-remote=&quot;true&quot; rel=&quot;nofollow&quot; data-method=&quot;delete&quot; href=&quot;/meals/4&quot;&gt;Remove&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Meal 3&lt;/td&gt;
+      &lt;td&gt;300&lt;/td&gt;
+      &lt;td&gt;10 Jun 14:04&lt;/td&gt;
+      &lt;td&gt;
+        &lt;div class=&quot;pull-right&quot;&gt;
+          &lt;a class=&quot;btn btn-primary&quot; href=&quot;/meals/6/edit&quot;&gt;Edit&lt;/a&gt;
+          &lt;a class=&quot;btn btn-danger&quot; data-confirm=&quot;Are you sure to remove Meal 3?&quot; data-remote=&quot;true&quot; rel=&quot;nofollow&quot; data-method=&quot;delete&quot; href=&quot;/meals/6&quot;&gt;Remove&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+
+<p>&lt;/table&gt;</p>
+
+<pre><code>  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<p>&lt;/div&gt;</p>
+
+<pre><code> &lt;hr&gt;
+
+ &lt;footer class=&quot;container&quot;&gt;
+   &lt;p&gt;Built by Martin&lt;/p&gt;
+ &lt;/footer&gt;
+&lt;!-- /container --&gt;</code></pre>
+
+<p>&lt;/body&gt;&lt;/html&gt;</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

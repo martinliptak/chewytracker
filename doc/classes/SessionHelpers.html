@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>SessionHelpers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            SessionHelpers 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/test/support/session_helpers_rb.html">test/support/session_helpers.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-current_user">current_user</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-sign_in">sign_in</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-current_user">
+            
+              <b>current_user</b>()
+            
+            <a href="../classes/SessionHelpers.html#method-i-current_user" name="method-i-current_user" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-current_user_source')" id="l_method-i-current_user_source">show</a>
+                
+              </p>
+              <div id="method-i-current_user_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File test/support/session_helpers.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">current_user</span>
+  <span class="ruby-identifier">@@user</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-sign_in">
+            
+              <b>sign_in</b>(user)
+            
+            <a href="../classes/SessionHelpers.html#method-i-sign_in" name="method-i-sign_in" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-sign_in_source')" id="l_method-i-sign_in_source">show</a>
+                
+              </p>
+              <div id="method-i-sign_in_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File test/support/session_helpers.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">sign_in</span>(<span class="ruby-identifier">user</span>)
+  <span class="ruby-identifier">visit</span> <span class="ruby-identifier">sign_in_path</span>
+  <span class="ruby-identifier">within</span> <span class="ruby-node">&quot;#session_form&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">fill_in</span> <span class="ruby-value">:session_form_email</span>, <span class="ruby-identifier">with</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>
+    <span class="ruby-identifier">fill_in</span> <span class="ruby-value">:session_form_password</span>, <span class="ruby-identifier">with</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">password</span>
+    <span class="ruby-identifier">click_button</span> <span class="ruby-string">&quot;Sign in&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">page</span>.<span class="ruby-identifier">must_have_content</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">name</span> <span class="ruby-comment"># wait</span>
+
+  <span class="ruby-identifier">@@user</span> = <span class="ruby-identifier">user</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

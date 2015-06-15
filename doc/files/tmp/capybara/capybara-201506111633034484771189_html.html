@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>capybara-201506111633034484771189.html</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            capybara-201506111633034484771189.html
+        </h1>
+        <ul class="files">
+            <li>tmp/capybara/capybara-201506111633034484771189.html</li>
+            <li>Last modified: 2015-06-11 16:33:03 +0200</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>&lt;!DOCTYPE html&gt;&lt;html lang=“en”&gt;&lt;head&gt;</p>
+
+<pre><code>  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=Edge,chrome=1&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;MealTracker&lt;/title&gt;
+
+  &lt;!-- Le HTML5 shim, for IE6-8 support of HTML elements --&gt;
+  &lt;!--[if lt IE 9]&gt;
+    &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;![endif]--&gt;
+
+  &lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;/assets/application.css&quot;&gt;
+  &lt;script src=&quot;/assets/application.js&quot; data-turbolinks-track=&quot;true&quot;&gt;&lt;/script&gt;
+
+  &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;/images/favicon.ico&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class=&quot;navbar navbar-inverse navbar-fixed-top&quot; role=&quot;navigation&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;navbar-header&quot;&gt;
+          &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;
+            &lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;
+            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+          &lt;/button&gt;
+          &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;MealTracker&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;navbar-collapse collapse&quot;&gt;
+            &lt;div class=&quot;navbar-form navbar-right&quot;&gt; 
+              &lt;a class=&quot;btn btn-success&quot; href=&quot;/sign_in&quot;&gt;Sign in&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;&lt;!--/.navbar-collapse --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+&lt;div class=&quot;page-header&quot;&gt;
+  &lt;h1&gt;Sign up&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;user_form&quot;&gt;
+  &lt;form role=&quot;form&quot; class=&quot;form-horizontal&quot; id=&quot;new_user&quot; action=&quot;/users&quot; accept-charset=&quot;UTF-8&quot; data-remote=&quot;true&quot; method=&quot;post&quot;&gt;&lt;input name=&quot;utf8&quot; type=&quot;hidden&quot; value=&quot;✓&quot;&gt;
+&lt;div class=&quot;form-group&quot;&gt;&lt;label class=&quot;control-label col-sm-2 required&quot; for=&quot;user_name&quot;&gt;Your name&lt;/label&gt;&lt;div class=&quot;col-sm-4&quot;&gt;&lt;input class=&quot;form-control&quot; type=&quot;text&quot; name=&quot;user[name]&quot; id=&quot;user_name&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;&lt;label class=&quot;control-label col-sm-2 required&quot; for=&quot;user_email&quot;&gt;Your email&lt;/label&gt;&lt;div class=&quot;col-sm-4&quot;&gt;&lt;input class=&quot;form-control&quot; type=&quot;text&quot; name=&quot;user[email]&quot; id=&quot;user_email&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;&lt;label class=&quot;control-label col-sm-2 required&quot; for=&quot;user_password&quot;&gt;Password&lt;/label&gt;&lt;div class=&quot;col-sm-4&quot;&gt;&lt;input class=&quot;form-control&quot; type=&quot;password&quot; name=&quot;user[password]&quot; id=&quot;user_password&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;&lt;label class=&quot;control-label col-sm-2 required&quot; for=&quot;user_password_confirmation&quot;&gt;Password again&lt;/label&gt;&lt;div class=&quot;col-sm-4&quot;&gt;&lt;input class=&quot;form-control&quot; type=&quot;password&quot; name=&quot;user[password_confirmation]&quot; id=&quot;user_password_confirmation&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;input type=&quot;submit&quot; name=&quot;commit&quot; value=&quot;Sign up&quot; class=&quot;btn btn-primary&quot;&gt;</code></pre>
+
+<p>&lt;/form&gt;</p>
+
+<pre><code>&lt;/div&gt;</code></pre>
+
+<p>&lt;/div&gt;</p>
+
+<pre><code> &lt;hr&gt;
+
+ &lt;footer class=&quot;container&quot;&gt;
+   &lt;p&gt;Built by MealTracker Inc.&lt;/p&gt;
+ &lt;/footer&gt;
+&lt;!-- /container --&gt;</code></pre>
+
+<p>&lt;/body&gt;&lt;/html&gt;</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>
