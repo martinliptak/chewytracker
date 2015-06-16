@@ -6,10 +6,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.create! name: "Regular user", email: "regular-user@example.com", password: "secret", password_confirmation: "secret"
-50.times { |i| 
-  Meal.create!(user: user, name: "Meal #{i + 1}", calories: 250, eaten_at: Time.now - i.days)
-}
-
+User.create! name: "Regular user", email: "regular-user@example.com", password: "secret", password_confirmation: "secret"
 User.create! name: "User manager", email: "user-manager@example.com", password: "secret", password_confirmation: "secret", role: "user_manager"
 User.create! name: "Admin", email: "admin@example.com", password: "secret", password_confirmation: "secret", role: "admin"
+
+User.all.each { |user|
+  10.times { |i|
+    day = Time.now - (i + 1).days
+    day = DateTime.new(day.year, day.month, day.day, 0, 0, 0)
+    day_of_week = day.strftime("%A")
+
+    {
+      "Breakfast" => 9, 
+      "Lunch" => 12, 
+      "Dinner" => 18
+    }.each { |meal, h|
+      Meal.create!(user: user, name: "#{meal} on #{day_of_week}", calories: 250, eaten_at: day + h.hours)
+    }
+  }
+}
