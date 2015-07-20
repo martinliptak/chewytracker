@@ -68,7 +68,7 @@ describe Api::V1::UsersController do
       end
 
       it "fails if not found" do
-        get :show, token: user_token.name, id: 10, format: :json
+        get :show, token: user_token.name, id: user.id + 10, format: :json
 
         response.status.must_equal 404
       end

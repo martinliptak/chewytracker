@@ -20,10 +20,6 @@ class User < ActiveRecord::Base
 
   default_scope ->{ order("id DESC") }
 
-  def total_calories
-    meals.where("eaten_at::date = current_date").sum(:calories)
-  end
-
   private
 
     def default_values

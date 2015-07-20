@@ -13,7 +13,7 @@ class Dashboard
   end
 
   def total_calories
-    @_total_calories ||= user.total_calories
+    @_total_calories ||= user.meals.where("eaten_at::date = current_date").sum(:calories)
   end
   
   def total_calories_percent
