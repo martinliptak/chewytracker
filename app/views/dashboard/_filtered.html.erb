@@ -1,0 +1,10 @@
+<%= flash_messages %>
+
+<% if @dashboard.meals.any? %>
+  <div class="alert alert-warning" role="alert">
+    <%= t ".filters_applied_warning_html", clear_filters_link_html: link_to(t(".clear_filters_link"), session[:return_to] || "/") %>
+  </div>
+  <%= render "table" %>
+<% else %>
+  <p><%= t ".none_html", clear_filters_link_html: link_to(t(".clear_filters_link"), session[:return_to] || "/") %></p>
+<% end %>

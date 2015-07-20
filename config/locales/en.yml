@@ -37,10 +37,6 @@ en:
   application:
     messages:
       unauthenticated: "You must be signed in!"
-    filtered:
-      filters_applied_warning_html: "<strong>Using filters!</strong> If you want to see all the meals, %{clear_filters_link_html}."
-      clear_filters_link: "clear filters"
-      none_html: "There are no results. Try refining your filter conditions or %{clear_filters_link_html}."
   dashboard:
     filters:
       title: "Filters"
@@ -52,6 +48,10 @@ en:
     index:
       title: "My meals"
       new_meal: "Add new meal"
+    filtered:
+      filters_applied_warning_html: "<strong>Using filters!</strong> If you want to see all the meals, %{clear_filters_link_html}."
+      clear_filters_link: "clear filters"
+      none_html: "There are no results. Try refining your filter conditions or %{clear_filters_link_html}."
     table:
       edit: "Edit"
       destroy: "Remove"
@@ -78,6 +78,10 @@ en:
       submit: "Apply"
     index:
       title: "All meals"
+    filtered:
+      filters_applied_warning_html: "<strong>Using filters!</strong> If you want to see all the meals, %{clear_filters_link_html}."
+      clear_filters_link: "clear filters"
+      none_html: "There are no results. Try refining your filter conditions or %{clear_filters_link_html}."
     form:
       submit: "Save"
     new:

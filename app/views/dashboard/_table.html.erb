@@ -7,7 +7,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @meals.each do |meal| %>
+    <% @dashboard.meals.each do |meal| %>
       <tr data-id="<%= meal.user.id %>">
         <td><%= meal.name %></td>
         <td><%= number_with_delimiter meal.calories %></td>
@@ -23,4 +23,4 @@
   </tbody>
 </table>
 
-<%= paginate @meals, remote: true %>
+<%= paginate @dashboard.meals, remote: true %>
