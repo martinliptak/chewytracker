@@ -14,13 +14,13 @@ feature "Sessions" do
         click_button "Sign in"
     end
 
-    page.must_have_content "I Am Grook"
+    page.must_have_content "I Am Groot"
   end
 
   scenario "Signing out", js: true do
     sign_in(user)
 
-    click_link "I Am Grook"
+    click_link "I Am Groot"
     click_link "Sign out"
     page.must_have_content "Track your daily calories."
   end

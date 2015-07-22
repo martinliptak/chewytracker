@@ -48,7 +48,7 @@ feature "Managing users" do
     page.wont_have_select "Role"
 
     within "#user_form" do
-      fill_in :user_name, with: "I Am Grook 2"
+      fill_in :user_name, with: "I Am Groot 2"
       fill_in :user_email, with: "iamgrook2@example.com"
       fill_in :user_password, with: "password"
       fill_in :user_password_confirmation, with: "password"
@@ -57,15 +57,15 @@ feature "Managing users" do
       click_button "Save"
     end
 
-    page.must_have_content "User I Am Grook 2 saved"
-    page.must_have_content "I Am Grook 2"
+    page.must_have_content "User I Am Groot 2 saved"
+    page.must_have_content "I Am Groot 2"
     current_path.must_equal users_path
 
     User.count.must_equal 2
 
     user.reload
     user.role.must_equal "regular"
-    user.name.must_equal "I Am Grook 2"
+    user.name.must_equal "I Am Groot 2"
     user.email.must_equal "iamgrook2@example.com"
     user.expected_calories.must_equal 5000
   end
@@ -78,20 +78,20 @@ feature "Managing users" do
     visit edit_user_path(user)
 
     within "#user_form" do
-      fill_in :user_name, with: "I Am Grook 2"
+      fill_in :user_name, with: "I Am Groot 2"
       select "User manager", from: "Role"
 
       click_button "Save"
     end
 
-    page.must_have_content "User I Am Grook 2 saved"
-    page.must_have_content "I Am Grook 2"
+    page.must_have_content "User I Am Groot 2 saved"
+    page.must_have_content "I Am Groot 2"
 
     User.count.must_equal 2
 
     user.reload
     user.role.must_equal "user_manager"
-    user.name.must_equal "I Am Grook 2"
+    user.name.must_equal "I Am Groot 2"
   end
 
   scenario "Removing other users", js: true do

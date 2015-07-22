@@ -3,7 +3,7 @@ require "test_helper"
 describe User do
   let(:user_params) { 
     { 
-      name: "I Am Grook", 
+      name: "I Am Groot", 
       email: "iamgrook@example.com", 
       password: "password", 
       password_confirmation: "password" 
