@@ -1,28 +1,15 @@
 # README #
 
-ChewyTracker keeps track of your calories.
+ChewyTracker keeps track of your calories. It is a sample application to try out new things. 
 
-## Assignment
+Some ideas (a note for myself):
 
-Write an application for the input of calories
-
-- User must be able to create an account and log in
-- When logged in, user can see a list of his meals and calories (user enters calories manually, no auto calculations!), also he should be able to edit and delete
-- Implement at least two roles with different permission levels (ie: a regular user would only be able to CRUD on his owned records, a user manager would be able to CRUD users, an admin would be able to CRUD on all records and users, etc.)
-- Each entry has a date, time, text, and num of calories
-- Filter by dates from-to, time from-to (e.g. how much calories have I had for lunch each day in the last month, if lunch is between 12 and 15h)
-- User setting – Expected number of calories per day
-- When displayed, it goes green if the total for that day is less than expected number of calories per day, otherwise goes red
-- Minimal UI/UX design is needed.
-- All actions need to be done client side using AJAX, refreshing the page is not acceptable. (If a mobile app, disregard this)
-- REST API. Make it possible to perform all user actions via the API, including authentication (If a mobile application and you don’t know how to create your own backend you can use Parse.com, Firebase.com or similar services to create the API).
-- In any case you should be able to explain how a REST API works and demonstrate that by creating functional tests that use the REST Layer directly.
-
-## Deployed application
+- replace Cancancan with Pundit
+- improve the UX of dashboard (consider using React.js)
 
 [http://chewytracker.herokuapp.com/](http://chewytracker.herokuapp.com/)
 
-## API
+## Using the API
 
 
 ```
@@ -66,3 +53,15 @@ rake test
 # run server
 rails s
 ```
+
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2015 Martin Lipták
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
