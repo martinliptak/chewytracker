@@ -1,15 +1,14 @@
 # README #
 
-ChewyTracker keeps track of your calories. It is a sample application to try out new things. 
+ChewyTracker keeps track of your calories. 
 
-Some ideas (a note for myself):
-
+It is a sample application to try out new things. Some ideas (a note for myself):
 - replace Cancancan with Pundit
 - improve the UX of dashboard (consider using React.js)
 
 [http://chewytracker.herokuapp.com/](http://chewytracker.herokuapp.com/)
 
-## Using the API
+## API
 
 
 ```
@@ -31,11 +30,10 @@ resp = conn.get "/api/v1/meals/", token: token
 meals = JSON.parse(resp.body)
 ```
 
-## Requirements
-
-- PostgreSQL
-
 ## Setup
+
+Requirements: 
+- PostgreSQL
 
 ```
 #!sh
