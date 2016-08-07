@@ -27,5 +27,7 @@ module Mealtracker
     config.generators do |g|
       g.test_framework :minitest, spec: true
     end
+
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
   end
 end

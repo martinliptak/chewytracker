@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
     root 'welcome#index', as: :welcome, via: :get
   end
-  
+
   constraints AuthenticatedConstraints.new do
     delete "/sign_out" => "sessions#destroy"
 
@@ -36,4 +36,6 @@ Rails.application.routes.draw do
       resources :meals, only: [:index, :show, :create, :update, :destroy]
     end
   end
+
+  get '/angular' => 'angular#index', as: :angular
 end

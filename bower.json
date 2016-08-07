@@ -1,0 +1,23 @@
+{
+  "name": "sampleapp",
+  "homepage": "https://github.com/martinliptak/chewytracker",
+  "authors": [
+    "Martin Lipták <mliptak@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap": "^3.3.7"
+  }
+}
