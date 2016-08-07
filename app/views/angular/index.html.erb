@@ -11,5 +11,49 @@
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
   </head>
   <body>
+    <%= render 'navbar' %>
+
+    <div class="container">
+      <div class="page-header">
+        <div class="pull-right">
+          <a href="" class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <%= t(".new_meal") %>
+          </a>
+        </div>
+
+        <h1>My meals</h1>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+
+        </div>
+        <div class="col-sm-8" id="meals">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Calories</th>
+                <th>When</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dinner on Saturday</td>
+                <td>250</td>
+                <td>06 Aug 18:00</td>
+                <td>
+                  <div class="pull-right">
+                    <a href="" class="btn btn-primary">Edit</a>
+                    <a href="" class="btn btn-danger">Remove</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <%= render 'footer' %>
   </body>
 </html>
