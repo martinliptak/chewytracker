@@ -15,12 +15,6 @@
 
     <div class="container">
       <div class="page-header">
-        <div class="pull-right">
-          <a href="" class="btn btn-primary">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <%= t(".new_meal") %>
-          </a>
-        </div>
-
         <h1>My meals</h1>
       </div>
       <div class="row">
@@ -28,6 +22,24 @@
 
         </div>
         <div class="col-sm-8" id="meals">
+          <div class="panel panel-primary">
+            <div class="panel-heading">New meal</div>
+            <div class="panel-body">
+              <form class="form form-inline" ng-submit="addMeal()">
+                <input type="text" ng-model="name" placeholder="Triple Superburger" class="form-control"
+                  required="required" />
+                <div class="input-group">
+                  <input type="number" ng-model="calories" placeholder="960" class="form-control"
+                    required="required" />
+                  <div class="input-group-addon">KCAL</div>
+                </div>
+                <input type="datetime-local" ng-model="eatenAt" class="form-control"
+                  required="required" />
+                <input type="submit" value="Add" class="btn btn-primary" />
+              </form>
+            </div>
+          </div>
+
           <table class="table table-striped">
             <thead>
               <tr>
@@ -40,7 +52,7 @@
               <tr ng-repeat="meal in meals">
                 <td>{{meal.name}}</td>
                 <td>{{meal.calories}}</td>
-                <td>{{meal.when}}</td>
+                <td>{{meal.eaten_at}}</td>
                 <td>
                   <div class="pull-right">
                     <a href="" class="btn btn-primary">Edit</a>
