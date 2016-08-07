@@ -5,7 +5,6 @@ angular
     'meals',
     function($scope, meals) {
       $scope.meals = meals.meals;
-      console.log($scope.meals);
 
       $scope.addMeal = function() {
         $scope.meals.unshift({

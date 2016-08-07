@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="page-header">
+    <div class="pull-right">
+      <a ui-sref="dashboard" class="btn btn-default">Back</a>
+    </div>
+
+    <h1 ng-if="newRecord">Add new meal</h1>
+    <h1 ng-if="!newRecord">Edit meal</h1>
+  </div>
+  <div>
+    <form class="form form-horizontal" ng-submit="save()">
+      <div class="form-group">
+        <label class="control-label col-sm-2 required">Name</label>
+        <div class="col-sm-4">
+          <input
+            type="text"
+            ng-model="meal.name"
+            placeholder="Triple Superburger"
+            class="form-control"
+            required="required"
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2 required">Calories</label>
+        <div class="col-sm-4">
+          <div class="input-group">
+            <input
+              type="number"
+              ng-model="meal.calories"
+              placeholder="960"
+              class="form-control"
+              required="required"
+            />
+            <div class="input-group-addon">KCAL</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2 required">Calories</label>
+        <div class="col-sm-4">
+          <input
+            type="datetime-local"
+            ng-model="meal.eatenAt"
+            class="form-control"
+            required="required"
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

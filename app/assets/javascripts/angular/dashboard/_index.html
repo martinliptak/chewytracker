@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="page-header">
+    <div class="pull-right">
+      <a ui-sref="meals.new" class="btn btn-primary">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new meal
+      </a>
+    </div>
+
+    <h1>My meals</h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+
+    </div>
+    <div class="col-sm-8">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Calories</th>
+            <th>When</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="meal in meals">
+            <td>{{meal.name}}</td>
+            <td>{{meal.calories}}</td>
+            <td>{{meal.eaten_at}}</td>
+            <td>
+              <div class="pull-right">
+                <a ui-sref="meals.edit({ id: meal.id })" class="btn btn-primary">Edit</a>
+                <a href="" class="btn btn-danger">Remove</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
