@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%= stylesheet_link_tag "angular", :media => "all" %>
+    <%= javascript_include_tag "angular" %>
+
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+  </head>
+  <body ng-app="chewyTracker">
+    <ng-include src="'angular/layout/_navbar.html'"></ng-include>
+
+    <ui-view></ui-view>
+
+    <ng-include src="'angular/layout/_footer.html'"></ng-include>
+  </body>
+</html>

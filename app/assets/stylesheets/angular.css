@@ -1,0 +1,8 @@
+/*
+ *= require bootstrap
+ *= require_self
+ */
+
+ body {
+  margin-top: 50px;
+ }
