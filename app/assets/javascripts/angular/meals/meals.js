@@ -6,6 +6,7 @@ angular
       find: find,
       create: create,
       update: update,
+      destroy: destroy,
       meals: []
     };
 
@@ -29,6 +30,10 @@ angular
 
     function update(id, meal) {
       return $http.patch('/api/v1/meals/' + id, { token: sessions.token, meal: meal });
+    }
+
+    function destroy(id) {
+      return $http.delete('/api/v1/meals/' + id, { params: { token: sessions.token } });
     }
 
     return m;

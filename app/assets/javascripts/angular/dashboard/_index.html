@@ -57,7 +57,7 @@
             <td>
               <div class="pull-right">
                 <a ui-sref="meals.edit({ id: meal.id })" class="btn btn-primary">Edit</a>
-                <a href="" class="btn btn-danger">Remove</a>
+                <a ng-click="deleteMeal(meal.id)" class="btn btn-danger">Remove</a>
               </div>
             </td>
           </tr>

@@ -26,5 +26,13 @@ angular
         $scope.totalCalories = totalCalories(meals);
         $scope.totalCaloriesExceeded = $scope.totalCalories - $scope.expectedCalories > 0;
       }, true);
+
+      $scope.deleteMeal = function(id) {
+        if (window.confirm('Really?')) {
+          meals.destroy(id).then(function() {
+            meals.load(); // :)
+          });
+        }
+      };
     }
   ]);
