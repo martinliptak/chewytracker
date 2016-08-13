@@ -6,7 +6,13 @@ angular
     '$stateParams',
     'meals',
     function($scope, $state, $stateParams, meals) {
-      $scope.meal = meals.meals[$stateParams.id];
+      meal = meals.find($stateParams.id);
+
+      $scope.meal = {
+        name: meal.name,
+        calories: meal.calories,
+        eaten_at: new Date(meal.eaten_at)
+      };
 
       $scope.save = function() {
         meals.update($stateParams.id, $scope.meal);

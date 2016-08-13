@@ -3,6 +3,7 @@ angular
   .factory('meals', ['$http', 'sessions', function($http, sessions) {
     var m = {
       load: load,
+      find: find,
       create: create,
       update: update,
       meals: []
@@ -16,12 +17,18 @@ angular
         });
     }
 
+    function find(id) {
+      return m.meals.find(function(meal) {
+        return meal.id == id
+      });
+    }
+
     function create(meal) {
-      meals.unshift(meal);
+      // TODO: Create request
     }
 
     function update(id, meal) {
-      //TODO
+      // TODO: Update request
     }
 
     return m;
