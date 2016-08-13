@@ -12,7 +12,7 @@ angular
       $http
         .get('/api/v1/meals', { params: { token: sessions.token } })
         .then(function(response) {
-          angular.copy(response.data.slice(0, 10), m.meals);
+          angular.copy(response.data, m.meals);
         });
     }
 

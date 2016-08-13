@@ -10,14 +10,34 @@
   </div>
   <div class="row">
     <div class="col-sm-4">
-      <div class="panel panel-default">
+      <div class="panel panel-default {{ (totalCalories < expectedCalories) ? 'panel-success' : 'panel-danger'}}">
         <div class="panel-heading">Total calories today</div>
-        <div class="panel-body">TODO</div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">Filters</div>
-        <div class="panel-body">TODO</div>
+        <div class="panel-body">
+          <div class="progress" ng-if="totalCalories < expectedCalories">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-success"
+              role="progressbar"
+              aria-valuenow="0.0"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: {{(totalCalories * 100.0) / expectedCalories}}%;"
+            >
+            </div>
+          </div>
+          <div class="alert" role="alert" ng-if="totalCalories >= expectedCalories">
+            That's enough for today!
+          </div>
+          <table class="table">
+            <tr>
+              <th>Total</th>
+              <td>{{totalCalories}}</td>
+            </tr>
+            <tr>
+              <th>Expected</th>
+              <td>{{expectedCalories}}</td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
     <div class="col-sm-8">
@@ -30,7 +50,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="meal in meals">
+          <tr ng-repeat="meal in meals | limitTo:10">
             <td>{{meal.name}}</td>
             <td>{{meal.calories}}</td>
             <td>{{meal.eaten_at}}</td>
