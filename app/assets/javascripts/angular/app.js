@@ -8,7 +8,12 @@ angular
         .state('dashboard', {
           url: '',
           templateUrl: 'angular/dashboard/_index.html',
-          controller: 'DashboardCtrl'
+          controller: 'DashboardCtrl',
+          resolve: {
+            postPromise: ['meals', function(meals) {
+              return meals.load();
+            }]
+          }
         })
         .state('meals', {
           url: '/meals',
