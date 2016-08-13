@@ -53,7 +53,7 @@
           <tr ng-repeat="meal in meals | limitTo:10">
             <td>{{meal.name}}</td>
             <td>{{meal.calories}}</td>
-            <td>{{meal.eaten_at}}</td>
+            <td>{{meal.eaten_at | date:'short'}}</td>
             <td>
               <div class="pull-right">
                 <a ui-sref="meals.edit({ id: meal.id })" class="btn btn-primary">Edit</a>
