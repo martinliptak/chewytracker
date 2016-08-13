@@ -8,11 +8,11 @@ angular
       $scope.newRecord = true;
 
       $scope.save = function() {
-        meals.create($scope.meal);
+        meals.create($scope.meal).then(function() {
+          $scope.meal = {};
 
-        $scope.meal = {};
-
-        $state.go('dashboard');
+          $state.go('dashboard');
+        });
       };
     }
   ]);

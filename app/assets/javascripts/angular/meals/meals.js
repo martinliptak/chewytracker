@@ -24,11 +24,11 @@ angular
     }
 
     function create(meal) {
-      // TODO: Create request
+      return $http.post('/api/v1/meals', { token: sessions.token, meal: meal });
     }
 
     function update(id, meal) {
-      // TODO: Update request
+      return $http.patch('/api/v1/meals/' + id, { token: sessions.token, meal: meal });
     }
 
     return m;

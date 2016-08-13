@@ -15,11 +15,11 @@ angular
       };
 
       $scope.save = function() {
-        meals.update($stateParams.id, $scope.meal);
+        meals.update($stateParams.id, $scope.meal).then(function() {
+          $scope.meal = {};
 
-        $scope.meal = {};
-
-        $state.go('dashboard');
+          $state.go('dashboard');
+        });
       };
     }
   ]);
