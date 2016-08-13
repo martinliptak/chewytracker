@@ -11,10 +11,10 @@
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
   </head>
   <body ng-app="chewyTracker">
-    <%= render 'navbar' %>
+    <ng-include src="'angular/layout/_navbar.html'"></ng-include>
 
     <ui-view></ui-view>
 
-    <%= render 'footer' %>
+    <ng-include src="'angular/layout/_footer.html'"></ng-include>
   </body>
 </html>
